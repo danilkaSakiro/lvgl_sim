@@ -12,7 +12,6 @@ State::State(StatesID id)
     : _id(id)
     , mIsNeedUpdateScreen(false)
 {
-    printf("State::State == CONSTRUCTOR\r\n");
     if (aux_tim == nullptr)
     {
         aux_tim = xTimerCreate(  "aux_anim", pdMS_TO_TICKS(5000), pdFALSE, nullptr, [] (TimerHandle_t xTimer)
@@ -24,25 +23,20 @@ State::State(StatesID id)
 
 State::~State()
 {
-    printf("State::State == DESTRUCTOR\r\n");
 }
 
 void State::activate(void* arg)
 {
-    printf("State::activate\r\n");
 }
 
 void State::deactivate()
 {
-    printf("State::deactivate\r\n");
 }
 
 bool State::updateScreen(const uint32_t &mask)
 {
-    printf("State::updateScreen\r\n");
     if (screen_manager::screen_pt() == nullptr)
     {
-        printf("State::current screen is NULL\r\n");
         return false;
     }
 
@@ -51,7 +45,6 @@ bool State::updateScreen(const uint32_t &mask)
 
 bool State::updateScreenAction(const uint32_t &mask)
 {
-    printf("State::updateScreenAction\r\n");
     return false;
 }
 

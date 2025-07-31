@@ -20,14 +20,12 @@
 #include "EventSystem.hpp"
 
 #include "StateMachine.hpp"
-#include "../States/ErrorState.hpp"
-#include "../States/MenuState.hpp"
 #include "../States/OffState.hpp"
 #include "../States/OnState.hpp"
 
 #include "ui.h"
 #include "screen_manager.hpp"
-
+#include "esp_lvgl_port.h"
 // namespace
 // {
 //     SemaphoreHandle_t _mux = nullptr;
@@ -165,28 +163,20 @@ void create_hello_world_screen()
  */
 void lvgl_task(void *pvParameters)
 {
-    screen_manager::init();
-
     lv_init();
     hal_init(480, 480);
+
+    lvgl_port_init();
+    screen_manager::init();
+
     ui_init();
-    
-    // _mux = xSemaphoreCreateMutex();
 
-    // lv_init();
+    StateMachine::changeState(StatesID::on_state);
 
-    // /*Initialize the HAL (display, input devices, tick) for LVGL*/
-    // hal_init(480, 480);
-    // /* Show simple hello world screen */
-    // ui_init();
-    // create_hello_world_screen();
-    // lv_demo_widgets();
     while (true){
-        // xSemaphoreTake(_mux, portMAX_DELAY);
-        screen_manager::lvgl_lock();
+        lvgl_port_lock(0);
         lv_timer_handler(); /* Handle LVGL tasks */
-        screen_manager::lvgl_unlock();
-        // xSemaphoreGive(_mux);
+        lvgl_port_unlock();
         vTaskDelay(pdMS_TO_TICKS(33)); /* Short delay for the RTOS scheduler */
     }
 }
@@ -206,64 +196,9 @@ void another_task(void *pvParameters)
 {
     vTaskDelay(pdMS_TO_TICKS(1000));
 
-
-
-    // StateMachine::changeState(StatesID::on_state);
-
-    /* Create some load in an infinite loop */
-    // vTaskDelay(pdMS_TO_TICKS(2000));
-    // int cnt = 0;
-    // ScreensEnum a = ScreensEnum::SCREEN_ID_SECOND;
     while (true){
-        StateMachine::changeState(StatesID::on_state);
-        EventSystem::throwEvent(new Event_updateScreen);
-        EventSystem::throwEvent(new Event_updateScreen);
-        EventSystem::throwEvent(new Event_updateScreen);
-        EventSystem::throwEvent(new Event_updateScreen);
-        StateMachine::changeState(StatesID::off_state);
-        StateMachine::changeState(StatesID::on_state);
-        StateMachine::changeState(StatesID::on_state);
-        StateMachine::changeState(StatesID::on_state);
-        EventSystem::throwEvent(new Event_updateScreen);
-        EventSystem::throwEvent(new Event_updateScreen);
-        EventSystem::throwEvent(new Event_updateScreen);
-        EventSystem::throwEvent(new Event_updateScreen);
-        EventSystem::throwEvent(new Event_updateScreen);
-        EventSystem::throwEvent(new Event_updateScreen);
-        EventSystem::throwEvent(new Event_updateScreen);
-        EventSystem::throwEvent(new Event_updateScreen);
-        EventSystem::throwEvent(new Event_updateScreen);
-        StateMachine::changeState(StatesID::off_state);
-        EventSystem::throwEvent(new Event_updateScreen);
-        EventSystem::throwEvent(new Event_updateScreen);
-        EventSystem::throwEvent(new Event_updateScreen);
-        StateMachine::changeState(StatesID::on_state);
-        EventSystem::throwEvent(new Event_updateScreen);
-        EventSystem::throwEvent(new Event_updateScreen);
-        EventSystem::throwEvent(new Event_updateScreen);
-        StateMachine::changeState(StatesID::off_state);
-        EventSystem::throwEvent(new Event_updateScreen);
-        EventSystem::throwEvent(new Event_updateScreen);
-        EventSystem::throwEvent(new Event_updateScreen);
-        StateMachine::changeState(StatesID::on_state);
-        EventSystem::throwEvent(new Event_updateScreen);
-        EventSystem::throwEvent(new Event_updateScreen);
-        EventSystem::throwEvent(new Event_updateScreen);
-        // if (cnt++ > 1000)
-        // {
-        //     screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_SECOND);
-        //     vTaskDelay(pdMS_TO_TICKS(600000));
-        //     continue;
-        // }
-        // xSemaphoreTake(_mux, portMAX_DELAY);
-        // screen_manager::changeToScreen(a);
-        // xSemaphoreGive(_mux);
-        // a = (a == ScreensEnum::SCREEN_ID_SECOND) ? ScreensEnum::SCREEN_ID_MAIN : ScreensEnum::SCREEN_ID_SECOND;
-        // printf("Second Task is running :)\n");
         vShowTaskList();
-        vTaskDelay(pdMS_TO_TICKS(10));
-        /* Delay the task for 500 milliseconds */
-        // vTaskDelay(pdMS_TO_TICKS(5));
+        vTaskDelay(pdMS_TO_TICKS(500));
     }
 }
 
@@ -285,15 +220,6 @@ extern "C" void freertos_main()
 
     StateMachine::registerState<OnState>(StatesID::on_state);
     StateMachine::registerState<OffState>(StatesID::off_state);
-    // EventSystem::init();
-    // EventSystem::subscribe(&fms);
-
-    // StateMachine::registerState<OnState>(StatesID::on_state);
-    // StateMachine::registerState<OffState>(StatesID::off_state);
-
-    // StateMachine::changeState(StatesID::on_state);
-
-    /* Initialize LVGL (Light and Versatile Graphics Library) and other resources */
 
     /* Create the LVGL task */
     if (xTaskCreate(lvgl_task, "LVGL Task", 8192, nullptr, 3, nullptr) != pdPASS) {
@@ -302,10 +228,10 @@ extern "C" void freertos_main()
     }
 
     /* Create another task */
-    if (xTaskCreate(another_task, "Another Task", 8192, nullptr, 3, nullptr) != pdPASS) {
-        printf("Error creating another task\n");
-        /* Error handling */
-    }
+    // if (xTaskCreate(another_task, "Another Task", 8192, nullptr, 3, nullptr) != pdPASS) {
+    //     printf("Error creating another task\n");
+    //     /* Error handling */
+    // }
 
     /* Start the scheduler */
     vTaskStartScheduler();

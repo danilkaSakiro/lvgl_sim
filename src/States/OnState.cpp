@@ -9,23 +9,18 @@ OnState::OnState(StatesID id)
     , b(0)
     , c(0)
 {
-    printf("OnState::OnState == CONSTRUCTOR\r\n");
 }
 OnState::~OnState() 
 {
-    printf("OnState::OnState == DESTRUCTOR\r\n");
 }
 
 void OnState::activate(void* arg)
 {
-    printf("OnState::activate\r\n");
-
     screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_MAIN);
 
     AUXTIM_set_CB([](void* arg)
     {
         OnState* ptr = static_cast<OnState*>(arg);
-        printf("OnState::TIMER\r\n");
         ptr->a = rand() % 101;
         ptr->b = rand() % 101;
         ptr->c = rand() % 101;
@@ -37,13 +32,11 @@ void OnState::activate(void* arg)
 
 void OnState::deactivate()
 {
-    printf("OnState::deactivate\r\n");
     AUXTIM_clear();
 }
 
 bool OnState::updateScreenAction(const uint32_t &mask)
 {
-    printf("OnState::updateScreenAction\r\n");
     screen_manager::screen_pt()->updateScreen(a, b, c);
     return true;
 }

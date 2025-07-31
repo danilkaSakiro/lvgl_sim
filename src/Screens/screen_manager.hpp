@@ -1,9 +1,7 @@
 #pragma once
 #include "screen_main.hpp"
 #include "screen_second.hpp"
-
-#include "FreeRTOS.h"
-#include "semphr.h"
+#include "actions.h"
 
 class screen_manager
 {
@@ -15,13 +13,15 @@ public:
     static void changeToScreen(enum ScreensEnum screenId);
     static screen_base * screen_pt() {return current_screen;}
 
-    static void lvgl_lock();
-    static void lvgl_unlock();
+    static uint32_t getMY_EVENT() {return MY_EVENT;}
 
 private:
     static lv_obj_t *getScreenObj(enum ScreensEnum screenId);
-    static SemaphoreHandle_t _mux;
     static screen_base* current_screen;
 
     friend void action_screen(lv_event_t * e);
+
+    static void changeToScreen_event(lv_event_t * e);
+
+    static uint32_t MY_EVENT;
 };

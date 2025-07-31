@@ -10,6 +10,7 @@ class EventSystem
 public:
     static void               init();
     static void               throwEvent(Event *event, bool highPrior = false);
+    static void               throwEventNoBlock(Event *event, bool highPrior = false);
     static void               subscribe(Event_interface *ptr);
 
 private:

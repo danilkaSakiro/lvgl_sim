@@ -1,8 +1,6 @@
 #pragma once
 #include "State.hpp"
 
-class ConfigsManager;
-
 class OffState : public State
 {
 public:

@@ -5,20 +5,8 @@
 class Event_btn;
 class Event_arc;
 
-// class Event_emerg_stop;
-
-// class Event_test_finished;
-// class Event_modbus_ok;
-
 class Event_changeState;
 class Event_updateScreen;
-
-// class Event_wifi_AP_start;
-// class Event_full_reset;
-// class Event_network_reset;
-// class Event_ocpp_setup_reset;
-
-// class Event_reset_httpd_server;
 
 //########################################################################3
 
@@ -41,17 +29,6 @@ public:
     virtual bool onEvent(Event_changeState* obj) {return false;}
     virtual bool onEvent(Event_updateScreen* obj) {return false;}
 
-    // virtual bool onEvent(Event_test_finished* obj) {return false;}
-    // virtual bool onEvent(Event_emerg_stop* obj) {return false;}
-    // virtual bool onEvent(Event_modbus_ok* obj) {return false;}
-
-    // virtual bool onEvent(Event_wifi_AP_start* obj) {return false;}
-    // virtual bool onEvent(Event_full_reset* obj) {return false;}
-    // virtual bool onEvent(Event_reset_httpd_server* obj) {return false;}
-    // virtual bool onEvent(Event_network_reset* obj) {return false;}
-    // virtual bool onEvent(Event_ocpp_setup_reset* obj) {return false;}
-    
-    
 };
 
 //==============================--CRTP Event--======================================//
@@ -101,26 +78,7 @@ private:
     int _val;   
 };
 
-// class Event_emerg_stop final : public Event_crtp<Event_emerg_stop> 
-// {
-// public:
-//     Event_emerg_stop(int source)
-//         : _source(source)
-//     {}
-//     int getSource() {return _source;}
-// private:
-//     int _source;
-// };
-
-// class Event_modbus_ok final : public Event_crtp<Event_modbus_ok> {};
-// class Event_test_finished final : public Event_crtp<Event_test_finished> {};
 class Event_updateScreen final : public Event_crtp<Event_updateScreen> {};
-
-// class Event_wifi_AP_start final : public Event_crtp<Event_wifi_AP_start> {};
-// class Event_full_reset final : public Event_crtp<Event_full_reset> {};
-// class Event_reset_httpd_server final : public Event_crtp<Event_reset_httpd_server> {};
-// class Event_network_reset final : public Event_crtp<Event_network_reset> {};
-// class Event_ocpp_setup_reset final : public Event_crtp<Event_ocpp_setup_reset> {};
 
 class Event_changeState final : public Event_crtp<Event_changeState>
 {

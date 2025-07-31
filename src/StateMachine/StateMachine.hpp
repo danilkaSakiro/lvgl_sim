@@ -1,19 +1,17 @@
 #pragma once
 #include <cstdint>
-#include <array>
 #include <unordered_map>
-#include <set>
+#include <functional>
+
 #include "StatesID.hpp"
 #include "EventSystem.hpp"
-// #include <memory>
-#include <functional>
 
 class State;
 
 class StateMachine : public Event_interface
 {
 public:
-    using StateFabricMethod = std::function<State*()>;// std::unique_ptr<State>(*)();
+    using StateFabricMethod = std::function<State*()>;
 
     using FuncPTR = void(*)();
 
@@ -66,6 +64,5 @@ private:
 private:
     static std::unordered_map<StatesID, StateFabricMethod> States_fabric;
     static State* activeState;
-    // static StatesID        currentState;
     static StateMachine*  _pt; 
 };

@@ -10,15 +10,32 @@ std::list<Event_interface*> EventSystem::subscribers_list;
 void EventSystem::init()
 {
     xQueue = xQueueCreate(64, sizeof(Event*));
-    xTaskCreate(EventTask, "Evnt_Task", 8192, NULL, 3, NULL);
+    xTaskCreate(EventTask, "Evnt_Task", 8192, NULL, 4, NULL);
 }
 
 void EventSystem::throwEvent(Event *event, bool highPrior)
 {
     if (highPrior)
+    {
         xQueueSendToFront(xQueue, &event, portMAX_DELAY);
+    }
     else
+    {
         xQueueSendToBack(xQueue, &event, portMAX_DELAY);
+    }
+        
+}
+
+void EventSystem::throwEventNoBlock(Event *event, bool highPrior)
+{
+    if (highPrior)
+    {
+        xQueueSendToFront(xQueue, &event, 0);
+    }
+    else
+    {
+        xQueueSendToBack(xQueue, &event, 0);
+    }
 }
 
 void EventSystem::subscribe(Event_interface *ptr)
@@ -32,7 +49,6 @@ void EventSystem::subscribe(Event_interface *ptr)
 void EventSystem::EventTask(void *pvParameters)
 {
     Event* event = nullptr;
-    printf("EventTask Start!\n");
     for(;;)
     {
         xQueueReceive(xQueue, &event, portMAX_DELAY);

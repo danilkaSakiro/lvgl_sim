@@ -1,7 +1,9 @@
 #pragma once
 #include <cstdint>
-#include "StateMachine.hpp"
 #include <stdio.h>
+
+#include "EventSystem.hpp"
+#include "StatesID.hpp"
 
 struct tmrTimerControl;
 

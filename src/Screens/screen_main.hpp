@@ -6,7 +6,7 @@
 class screen_main : public screen_base
 {
 public:
-    screen_main(SemaphoreHandle_t mux, int screen_id);
+    screen_main(int screen_id);
     virtual ~screen_main();
 
 protected:

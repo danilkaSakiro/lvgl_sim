@@ -1,4 +1,5 @@
 #include "StateMachine.hpp"
+#include "EventSystem.hpp"
 #include <stdio.h>
 #include "State.hpp"
 #include <iostream>
@@ -13,7 +14,6 @@ namespace
     SemaphoreHandle_t _mux = nullptr;
 };
 
-// StatesID                                                    StateMachine::currentState = StatesID::noState;
 StateMachine*                                               StateMachine::_pt = nullptr; 
 
 std::unordered_map<StatesID, StateMachine::StateFabricMethod> StateMachine::States_fabric;
@@ -46,7 +46,7 @@ bool StateMachine::onEvent(Event* evnt)
 
 bool StateMachine::onEvent(Event_changeState* obj)
 {
-    printf("[StateMachine]::Change State\r\n");
+    printf("[StateMachine]::Change State to %d\r\n", (int)(obj->getId()));
 
     StatesID mId = (StatesID)obj->getId();
 
@@ -86,7 +86,7 @@ bool StateMachine::onEvent(Event_changeState* obj)
     xSemaphoreGive(_mux);
 
     activeState->activate(obj->getData());
-    // activeState->updateScreen(0xFFFFFFFF);
+    activeState->updateScreen(0xFFFFFFFF);
     
     return true;
 }

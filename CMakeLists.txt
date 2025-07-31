@@ -12,8 +12,6 @@ set(user_SRCS
     ${PROJECT_SOURCE_DIR}/src/EventSystem/EventSystem.cpp
     ${PROJECT_SOURCE_DIR}/src/StateMachine/StateMachine.cpp
     ${PROJECT_SOURCE_DIR}/src/States/State.cpp
-    ${PROJECT_SOURCE_DIR}/src/States/ErrorState.cpp
-    ${PROJECT_SOURCE_DIR}/src/States/MenuState.cpp
     ${PROJECT_SOURCE_DIR}/src/States/OffState.cpp
     ${PROJECT_SOURCE_DIR}/src/States/OnState.cpp
 
@@ -27,6 +25,7 @@ set(user_SRCS
     ${PROJECT_SOURCE_DIR}/src/Screens/screen_base.cpp
     ${PROJECT_SOURCE_DIR}/src/Screens/screen_main.cpp
     ${PROJECT_SOURCE_DIR}/src/Screens/screen_second.cpp
+    ${PROJECT_SOURCE_DIR}/src/esp_lvgl_port/esp_lvgl_port.cpp
     
 )
 
@@ -36,6 +35,7 @@ set(user_include_DIRS
     ${PROJECT_SOURCE_DIR}/src/States
     ${PROJECT_SOURCE_DIR}/src/ui
     ${PROJECT_SOURCE_DIR}/src/Screens
+    ${PROJECT_SOURCE_DIR}/src/esp_lvgl_port
 )
 
 if(USE_FREERTOS)
