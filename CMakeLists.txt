@@ -15,7 +15,11 @@ set(user_SRCS
     ${PROJECT_SOURCE_DIR}/src/States/OffState.cpp
     ${PROJECT_SOURCE_DIR}/src/States/OnState.cpp
 
-    ${PROJECT_SOURCE_DIR}/src/ui/images.c
+    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_tool.c
+    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_frosty_tool.c
+    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_fan_tool.c
+    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_toolll.c
+    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_tools40.c
     ${PROJECT_SOURCE_DIR}/src/ui/screens.c
     ${PROJECT_SOURCE_DIR}/src/ui/styles.c
     ${PROJECT_SOURCE_DIR}/src/ui/ui.c
@@ -34,6 +38,7 @@ set(user_include_DIRS
     ${PROJECT_SOURCE_DIR}/src/StateMachine
     ${PROJECT_SOURCE_DIR}/src/States
     ${PROJECT_SOURCE_DIR}/src/ui
+    ${PROJECT_SOURCE_DIR}/src/ui/images
     ${PROJECT_SOURCE_DIR}/src/Screens
     ${PROJECT_SOURCE_DIR}/src/esp_lvgl_port
 )

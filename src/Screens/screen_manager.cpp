@@ -57,7 +57,9 @@ void action_screen(lv_event_t * e)
         case SCREEN_ID_SECOND:
             screen_manager::current_screen = new screen_second(SCREEN_ID_SECOND);
             break;
-        
+        case SCREEN_ID_TOOLS:
+            screen_manager::current_screen = new screen_second(SCREEN_ID_TOOLS);
+            break;
         default:
             break;
         }

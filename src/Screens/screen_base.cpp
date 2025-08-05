@@ -31,3 +31,8 @@ void screen_base::updateScreenAction(std::string a, int b)
 {
 
 };
+
+void screen_base::updateScreenAction(std::string a) 
+{
+
+};

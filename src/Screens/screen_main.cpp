@@ -14,9 +14,9 @@ screen_main::~screen_main()
 
 void screen_main::updateScreenAction(int a, int b, int c) 
 {
-    lv_label_set_text_fmt(objects.random1, "val %d", a);
-    lv_label_set_text_fmt(objects.random2, "val %d", b);
-    lv_label_set_text_fmt(objects.random3, "val %d", c);
+    char buf[32];
+    snprintf(buf, sizeof(buf), "%d C", c);
+    lv_label_set_text(objects.temperature, buf);
 };
 
 // ====================================================================
@@ -51,4 +51,12 @@ void action_button4_action(lv_event_t * e)
     printf("action_button4_action; Event: %d\r\n", ev);
 
     StateMachine::changeState(StatesID::off_state);
+}
+
+void action_tools_action(lv_event_t * e)
+{
+    auto ev = lv_event_get_code(e);
+    printf("action_button_tool_action; Event: %d\r\n", ev);
+
+    StateMachine::changeState(StatesID::menu);
 }

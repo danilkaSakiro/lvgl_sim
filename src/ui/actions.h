@@ -14,6 +14,11 @@ extern void action_button4_action(lv_event_t * e);
 extern void action_button5_action(lv_event_t * e);
 extern void action_screen(lv_event_t * e);
 extern void action_arc_value(lv_event_t * e);
+extern void action_tools_action(lv_event_t * e);
+extern void action_fan_tool_action(lv_event_t * e);
+extern void action_wi_fi_action(lv_event_t * e);
+extern void action_brightness_action(lv_event_t * e);
+extern void action_sound_action(lv_event_t * e);
 
 
 #ifdef __cplusplus

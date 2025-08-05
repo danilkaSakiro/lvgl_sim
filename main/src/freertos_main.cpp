@@ -220,7 +220,7 @@ extern "C" void freertos_main()
 
     StateMachine::registerState<OnState>(StatesID::on_state);
     StateMachine::registerState<OffState>(StatesID::off_state);
-
+    StateMachine::registerState<OffState>(StatesID::menu);
     /* Create the LVGL task */
     if (xTaskCreate(lvgl_task, "LVGL Task", 8192, nullptr, 3, nullptr) != pdPASS) {
         printf("Error creating LVGL task\n");

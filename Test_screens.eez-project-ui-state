@@ -1,6 +1,6 @@
 {
   "navigation": {
-    "selectedUserPageObject": "[Test_screens.eez-project]:/userPages/2",
+    "selectedUserPageObject": "[Test_screens.eez-project]:/userPages/0",
     "subnavigationSelectedItems": {
       "variables-tab/sub-navigation/selected-item": "Global"
     }
@@ -150,7 +150,8 @@
                       "enableClose": false,
                       "icon": "material:code"
                     }
-                  ]
+                  ],
+                  "active": true
                 },
                 {
                   "type": "tabset",
@@ -209,16 +210,15 @@
                 {
                   "type": "tab",
                   "id": "#ad71912b-ea92-4e5f-b362-965aa1de5be8",
-                  "name": "second",
+                  "name": "blank",
                   "component": "editor",
                   "config": {
-                    "objectPath": "[Test_screens.eez-project]:/userPages/2",
+                    "objectPath": "[Test_screens.eez-project]:/userPages/0",
                     "permanent": false
                   },
                   "icon": "svg:page"
                 }
-              ],
-              "active": true
+              ]
             },
             {
               "type": "row",
@@ -987,8 +987,8 @@
       "selection": {},
       "transform": {
         "translate": {
-          "x": -240,
-          "y": -240
+          "x": -306,
+          "y": -260
         },
         "scale": 1.5
       },
@@ -1024,8 +1024,8 @@
       "selection": {},
       "transform": {
         "translate": {
-          "x": -240,
-          "y": -240
+          "x": -402,
+          "y": -346
         },
         "scale": 1.5
       },

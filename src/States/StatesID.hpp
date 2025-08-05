@@ -6,6 +6,7 @@ enum StatesID : int
     noState = -1,
     on_state,
     off_state,
+    menu,
     
     state_count
 };

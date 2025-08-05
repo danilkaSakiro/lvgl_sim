@@ -17,13 +17,13 @@ OnState::~OnState()
 void OnState::activate(void* arg)
 {
     screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_MAIN);
-
+    c = 25;
     AUXTIM_set_CB([](void* arg)
     {
         OnState* ptr = static_cast<OnState*>(arg);
-        ptr->a = rand() % 101;
-        ptr->b = rand() % 101;
-        ptr->c = rand() % 101;
+        // ptr->a -= 3;
+        // ptr->b += 3;
+        // ptr->c = 15;
         EventSystem::throwEvent(new Event_updateScreen);
     }, this, 2000, true);
 
@@ -45,15 +45,15 @@ bool OnState::onEvent(Event_btn* obj)
 {
     if (obj->getBtn() == 1)
     {
-        a = rand() % 101;
+        c -= 3;
     }
     else if (obj->getBtn() == 2)
     {
-        b = rand() % 101;
+        c += 3;
     }
     else if (obj->getBtn() == 3)
     {
-        c = rand() % 101;
+        c = 25;
     }
 
     needUpdateScreen();
