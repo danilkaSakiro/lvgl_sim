@@ -10,13 +10,15 @@ public:
 
     void updateScreen(int a, int b, int c);
     void updateScreen(std::string a, int b);
-    void updateScreen(); 
+    void updateScreen(std::string a);
+    void updateScreen(float c); 
 
 protected:
     virtual void updateScreenAction(int a, int b, int c);
     virtual void updateScreenAction(std::string a, int b);
     virtual void updateScreenAction(std::string a);
-    
+    virtual void updateScreenAction(float c);
+
 private:
     int _screen_id;
 };

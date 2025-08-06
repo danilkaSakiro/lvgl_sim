@@ -19,6 +19,11 @@ extern void action_fan_tool_action(lv_event_t * e);
 extern void action_wi_fi_action(lv_event_t * e);
 extern void action_brightness_action(lv_event_t * e);
 extern void action_sound_action(lv_event_t * e);
+extern void action_scroll(lv_event_t * e);
+extern void action_lang_action(lv_event_t * e);
+extern void action_window_action(lv_event_t * e);
+extern void action_aboba_action(lv_event_t * e);
+extern void action_confirm_action(lv_event_t * e);
 
 
 #ifdef __cplusplus

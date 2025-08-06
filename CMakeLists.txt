@@ -14,12 +14,19 @@ set(user_SRCS
     ${PROJECT_SOURCE_DIR}/src/States/State.cpp
     ${PROJECT_SOURCE_DIR}/src/States/OffState.cpp
     ${PROJECT_SOURCE_DIR}/src/States/OnState.cpp
+    ${PROJECT_SOURCE_DIR}/src/States/MenuState.cpp
 
-    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_tool.c
-    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_frosty_tool.c
+    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_brightness.c
+    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_clock.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_fan_tool.c
-    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_toolll.c
+    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_frosty_tool.c
+    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_language.c
+    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_sound.c
+    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_state.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_tools40.c
+    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_wi_fi.c
+    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_window.c
+    
     ${PROJECT_SOURCE_DIR}/src/ui/screens.c
     ${PROJECT_SOURCE_DIR}/src/ui/styles.c
     ${PROJECT_SOURCE_DIR}/src/ui/ui.c

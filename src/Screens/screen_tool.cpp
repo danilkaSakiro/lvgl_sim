@@ -47,4 +47,10 @@ void action_sound_action(lv_event_t * e)
     EventSystem::throwEvent(new Event_btn(8));
 }
 
+void action_button5_action(lv_event_t * e)
+{
+    auto ev = lv_event_get_code(e);
+    printf("action_button5_action; Event: %d\r\n", ev);
 
+    StateMachine::changeState(StatesID::on_state);
+}

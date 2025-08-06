@@ -16,4 +16,5 @@ private:
     friend void action_brightness_action(lv_event_t * e);
     friend void action_sound_action(lv_event_t * e);
     friend void action_wi_fi_action(lv_event_t * e);
+    friend void action_button5_action(lv_event_t * e);
 };

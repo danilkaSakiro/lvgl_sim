@@ -12,11 +12,11 @@ screen_main::~screen_main()
 {
 };
 
-void screen_main::updateScreenAction(int a, int b, int c) 
+void screen_main::updateScreenAction(float c) 
 {
     char buf[32];
-    snprintf(buf, sizeof(buf), "%d C", c);
-    lv_label_set_text(objects.temperature, buf);
+    snprintf(buf, sizeof(buf), "%.1f °C", c);
+    lv_label_set_text(objects.set_temperature, buf);
 };
 
 // ====================================================================
@@ -57,6 +57,14 @@ void action_tools_action(lv_event_t * e)
 {
     auto ev = lv_event_get_code(e);
     printf("action_button_tool_action; Event: %d\r\n", ev);
+
+    StateMachine::changeState(StatesID::menu);
+}
+
+void action_fan_tool_action(lv_event_t * e)
+{
+    auto ev = lv_event_get_code(e);
+    printf("action_fan_tool_action; Event: %d\r\n", ev);
 
     StateMachine::changeState(StatesID::menu);
 }
