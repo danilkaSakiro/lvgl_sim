@@ -60,6 +60,25 @@ void action_screen(lv_event_t * e)
         case SCREEN_ID_TOOLS:
             screen_manager::current_screen = new screen_second(SCREEN_ID_TOOLS);
             break;
+        case SCREEN_ID_WI_FI_MENU :
+            screen_manager::current_screen = new screen_second(SCREEN_ID_WI_FI_MENU);
+            break;
+        case SCREEN_ID_BRIGHTNESS_MENU :
+            screen_manager::current_screen = new screen_second(SCREEN_ID_BRIGHTNESS_MENU);
+            break; 
+        case SCREEN_ID_SOUND_MENU :
+            screen_manager::current_screen = new screen_second(SCREEN_ID_SOUND_MENU);
+            break;         
+        case SCREEN_ID_LANGUAGE_MENU :
+            screen_manager::current_screen = new screen_second(SCREEN_ID_LANGUAGE_MENU);
+            break;
+        case SCREEN_ID_WINDOW_MENU :
+            screen_manager::current_screen = new screen_second(SCREEN_ID_WINDOW_MENU);
+            break; 
+        case SCREEN_ID_ABOBA_MENU :
+            screen_manager::current_screen = new screen_second(SCREEN_ID_ABOBA_MENU);
+            break; 
+
         default:
             break;
         }

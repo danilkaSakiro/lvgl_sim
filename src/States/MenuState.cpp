@@ -14,19 +14,21 @@ MenuState::~MenuState()
 
 void MenuState::activate(void *arg)
 {   
+    printf("[MenuState]::[activate]\r\n");
     screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_TOOLS);
     AUXTIM_set_CB([](void* arg)
     {
         // ptr->a -= 3;
         // ptr->b += 3;
         // ptr->c = 15;
-        EventSystem::throwEvent(new Event_updateScreen);
+        // EventSystem::throwEvent(new Event_updateScreen);
     }, this, 2000, true);
     AUXTIM_start();
 }
 
 void MenuState::deactivate()
 {
+    printf("[MenuState]::[deactivate]\r\n");
     AUXTIM_clear();
 }
 
@@ -38,22 +40,34 @@ bool MenuState::updateScreenAction(const uint32_t &mask)
 
 bool MenuState::onEvent(Event_btn* obj)
 {
-    int btn = obj->getBtn();
-    printf("[MenuState] Button Event: btn = %d\n", btn);
-
-    // if (obj->getBtn() == 1)
-    // {
-    //     c -= 3;
-    // }
-    // else if (obj->getBtn() == 2)
-    // {
-    //     c += 3;
-    // }
-    // else if (obj->getBtn() == 3)
-    // {
-    //     c = 25;
-    // }
-
+    if (obj->getBtn() == 7)
+    {
+        screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_WI_FI_MENU);
+    }
+    else if (obj->getBtn() == 8)
+    {
+        screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_BRIGHTNESS_MENU);
+    }
+    else if (obj->getBtn() == 9)
+    {
+        screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_SOUND_MENU);
+    }
+    else if (obj->getBtn() == 10)
+    {
+        screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_LANGUAGE_MENU);
+    }
+    else if (obj->getBtn() == 11)
+    {
+        screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_WINDOW_MENU);
+    }
+    else if (obj->getBtn() == 12)
+    {
+        screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_ABOBA_MENU);
+    }
+    if (obj->getBtn() == 13)
+    {
+        screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_MAIN);
+    }
     needUpdateScreen();
 
     return true;

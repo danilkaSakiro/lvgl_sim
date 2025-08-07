@@ -10,9 +10,10 @@ public:
     virtual ~screen_second();
 
 protected:
-    void updateScreenAction(std::string a, int b) override;
+    void updateScreenAction(int RPM) override;
 
 private:
-    friend void action_arc_value(lv_event_t * e);
+    friend void action_button4_action(lv_event_t * e);
     friend void action_button5_action(lv_event_t * e);
+    
 };

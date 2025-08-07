@@ -172,7 +172,7 @@ void lvgl_task(void *pvParameters)
 
     ui_init();
 
-    StateMachine::changeState(StatesID::on_state);
+    StateMachine::changeState(StatesID::off_state);
 
     while (true){
         lvgl_port_lock(0);
@@ -219,9 +219,10 @@ extern "C" void freertos_main()
     EventSystem::init();
     EventSystem::subscribe(&fms);
 
-    StateMachine::registerState<OnState>(StatesID::on_state);
     StateMachine::registerState<OffState>(StatesID::off_state);
+    StateMachine::registerState<OnState>(StatesID::on_state);
     StateMachine::registerState<MenuState>(StatesID::menu);
+
     /* Create the LVGL task */
     if (xTaskCreate(lvgl_task, "LVGL Task", 8192, nullptr, 3, nullptr) != pdPASS) {
         printf("Error creating LVGL task\n");

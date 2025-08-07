@@ -17,5 +17,5 @@ protected:
 
 private:
     float c;
-    
+    int a;
 };

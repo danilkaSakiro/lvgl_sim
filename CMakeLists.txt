@@ -18,12 +18,14 @@ set(user_SRCS
 
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_brightness.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_clock.c
+    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_down.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_fan_tool.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_frosty_tool.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_language.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_sound.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_state.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_tools40.c
+    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_up.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_wi_fi.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_window.c
     
@@ -36,6 +38,8 @@ set(user_SRCS
     ${PROJECT_SOURCE_DIR}/src/Screens/screen_base.cpp
     ${PROJECT_SOURCE_DIR}/src/Screens/screen_main.cpp
     ${PROJECT_SOURCE_DIR}/src/Screens/screen_second.cpp
+    ${PROJECT_SOURCE_DIR}/src/Screens/screen_tool.cpp
+    ${PROJECT_SOURCE_DIR}/src/Screens/screen_off.cpp
     ${PROJECT_SOURCE_DIR}/src/esp_lvgl_port/esp_lvgl_port.cpp
     
 )

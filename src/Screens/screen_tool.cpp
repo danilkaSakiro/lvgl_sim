@@ -17,7 +17,7 @@ screen_tool::~screen_tool()
 // Переопределение updateScreenAction
 void screen_tool::updateScreenAction(std::string a)
 {
-    printf("[screen_tool] Action: %s\n", a.c_str());
+    
 }
 
 // Обработчик Wi-Fi
@@ -26,7 +26,7 @@ void action_wi_fi_action(lv_event_t * e)
     auto ev = lv_event_get_code(e);
     printf("action_wi_fi_action; Event: %d\r\n", ev);
 
-    EventSystem::throwEvent(new Event_btn(6));
+    EventSystem::throwEvent(new Event_btn(7));
 }
 
 // Обработчик яркости
@@ -35,7 +35,7 @@ void action_brightness_action(lv_event_t * e)
     auto ev = lv_event_get_code(e);
     printf("action_brightness_action; Event: %d\r\n", ev);
 
-    EventSystem::throwEvent(new Event_btn(7));
+    EventSystem::throwEvent(new Event_btn(8));
 }
 
 // Обработчик звука
@@ -44,13 +44,41 @@ void action_sound_action(lv_event_t * e)
     auto ev = lv_event_get_code(e);
     printf("action_sound_action; Event: %d\r\n", ev);
 
-    EventSystem::throwEvent(new Event_btn(8));
+    EventSystem::throwEvent(new Event_btn(9));
 }
 
-void action_button5_action(lv_event_t * e)
+// Обработчик языка
+void action_lang_action(lv_event_t * e)
 {
     auto ev = lv_event_get_code(e);
-    printf("action_button5_action; Event: %d\r\n", ev);
+    printf("action_sound_action; Event: %d\r\n", ev);
 
-    StateMachine::changeState(StatesID::on_state);
+    EventSystem::throwEvent(new Event_btn(10));
+}
+
+// Проветривание
+void action_window_action(lv_event_t * e)
+{
+    auto ev = lv_event_get_code(e);
+    printf("action_sound_action; Event: %d\r\n", ev);
+
+    EventSystem::throwEvent(new Event_btn(11));
+}
+
+// Обработчик ABOBA
+void action_aboba_action(lv_event_t * e)
+{
+    auto ev = lv_event_get_code(e);
+    printf("action_sound_action; Event: %d\r\n", ev);
+
+    EventSystem::throwEvent(new Event_btn(12));
+}
+
+// Назад
+void action_go_back(lv_event_t * e)
+{
+    auto ev = lv_event_get_code(e);
+    printf("action_sound_action; Event: %d\r\n", ev);
+
+    EventSystem::throwEvent(new Event_btn(13));
 }

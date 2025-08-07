@@ -1,9 +1,9 @@
 #include "OffState.hpp"
 #include "screen_manager.hpp"
+#include "StateMachine.hpp"
 
 OffState::OffState(StatesID id)
     : State(id)
-    , val(0)
 {
 }
 
@@ -13,23 +13,26 @@ OffState::~OffState()
 
 void OffState::activate(void* arg)
 {
-    screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_SECOND);
+    printf("[OffState]::[activate]\r\n");
+    screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_POWER_OFF);
+    // AUXTIM_set_CB([](void* arg)
+    // {
+    //     // ptr->a -= 3;
+    //     // ptr->b += 3;
+    //     // ptr->c = 15;
+    //     EventSystem::throwEvent(new Event_updateScreen);
+    // }, this, 2000, true);
+    // AUXTIM_start();
 }
 
 void OffState::deactivate()
 {
+    printf("[OffState]::[deactivate]\r\n");
+    // AUXTIM_clear();
 }
 
 bool OffState::updateScreenAction(const uint32_t &mask)
 {
-    screen_manager::screen_pt()->updateScreen((val % 2 != 0) ? "ODD" : "EVEN", val);
-    
-    return true;
-}
-
-bool OffState::onEvent(Event_arc* obj)
-{
-    val = obj->getVal();
-    needUpdateScreen();
+    screen_manager::screen_pt()->updateScreen("ABOBA");
     return true;
 }
