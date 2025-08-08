@@ -11,7 +11,7 @@ screen_off::~screen_off()
 {   
 };
 
-void screen_off::updateScreenAction(float c) 
+void screen_off::updateScreenAction(int c) 
 {
 
 };

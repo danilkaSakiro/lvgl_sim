@@ -16,6 +16,10 @@ protected:
     bool updateScreenAction(const uint32_t &mask) override;
 
 private:
-    float c;
+    int c;
+    int c_preview;
     int a;
+    int a_preview;
+    bool rpm_changed;
+    bool temp_changed;
 };

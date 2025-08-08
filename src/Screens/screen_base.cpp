@@ -31,25 +31,17 @@ void screen_base::updateScreen(std::string a)
     lvgl_port_unlock();
 }
 
-void screen_base::updateScreen(float c) 
+void screen_base::updateScreen(int c) 
 {
     lvgl_port_lock(0);
     updateScreenAction(c);
     lvgl_port_unlock();
 }
 
-void screen_base::updateScreen(int a, float c) 
+void screen_base::updateScreen(int a, int c) 
 {
     lvgl_port_lock(0);
     updateScreenAction(a, c);
-    lvgl_port_unlock();
-}
-
-
-void screen_base::updateScreen(int a)
-{
-    lvgl_port_lock(0);
-    updateScreenAction(a);
     lvgl_port_unlock();
 }
 
@@ -63,7 +55,7 @@ void screen_base::updateScreenAction(std::string a, int b)
 
 };
 
-void screen_base::updateScreenAction(int a, float c)
+void screen_base::updateScreenAction(int a, int c)
 {
 
 };
@@ -72,12 +64,7 @@ void screen_base::updateScreenAction(std::string a)
 
 };
 
-void screen_base::updateScreenAction(float c)
-{
-
-};
-
-void screen_base::updateScreenAction(int a)
+void screen_base::updateScreenAction(int c)
 {
 
 };

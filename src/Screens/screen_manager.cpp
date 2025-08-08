@@ -51,33 +51,36 @@ void action_screen(lv_event_t * e)
 
         switch (scr)
         {
-        case SCREEN_ID_MAIN:
-            screen_manager::current_screen = new screen_main(SCREEN_ID_MAIN);
+        case SCREEN_ID_ON_STATE_MAINSCREEN:
+            screen_manager::current_screen = new screen_main(SCREEN_ID_ON_STATE_MAINSCREEN);
             break;
-        case SCREEN_ID_SECOND:
-            screen_manager::current_screen = new screen_second(SCREEN_ID_SECOND);
+        case SCREEN_ID_ON_STATE_CHANGE_TEMP:
+            screen_manager::current_screen = new screen_temp(SCREEN_ID_ON_STATE_CHANGE_TEMP);
             break;
+        case SCREEN_ID_ON_STATE_CHANGE_RPM:
+            screen_manager::current_screen = new screen_rpm(SCREEN_ID_ON_STATE_CHANGE_RPM);
+            break;    
         case SCREEN_ID_TOOLS:
-            screen_manager::current_screen = new screen_second(SCREEN_ID_TOOLS);
+            screen_manager::current_screen = new screen_tool(SCREEN_ID_TOOLS);
             break;
-        case SCREEN_ID_WI_FI_MENU :
-            screen_manager::current_screen = new screen_second(SCREEN_ID_WI_FI_MENU);
-            break;
-        case SCREEN_ID_BRIGHTNESS_MENU :
-            screen_manager::current_screen = new screen_second(SCREEN_ID_BRIGHTNESS_MENU);
-            break; 
-        case SCREEN_ID_SOUND_MENU :
-            screen_manager::current_screen = new screen_second(SCREEN_ID_SOUND_MENU);
-            break;         
-        case SCREEN_ID_LANGUAGE_MENU :
-            screen_manager::current_screen = new screen_second(SCREEN_ID_LANGUAGE_MENU);
-            break;
-        case SCREEN_ID_WINDOW_MENU :
-            screen_manager::current_screen = new screen_second(SCREEN_ID_WINDOW_MENU);
-            break; 
-        case SCREEN_ID_ABOBA_MENU :
-            screen_manager::current_screen = new screen_second(SCREEN_ID_ABOBA_MENU);
-            break; 
+        // case SCREEN_ID_CLOCK_SETTINGS :
+        //     screen_manager::current_screen = new screen_second(SCREEN_ID_CLOCK_SETTINGS);
+        //     break;
+        // case SCREEN_ID_TIMER_SETTINGS :
+        //     screen_manager::current_screen = new screen_second(SCREEN_ID_TIMER_SETTINGS);
+        //     break; 
+        // case SCREEN_ID_SOUND_MENU :
+        //     screen_manager::current_screen = new screen_second(SCREEN_ID_SOUND_MENU);
+        //     break;         
+        // case SCREEN_ID_LANGUAGE_MENU :
+        //     screen_manager::current_screen = new screen_second(SCREEN_ID_LANGUAGE_MENU);
+        //     break;
+        // case SCREEN_ID_WINDOW_MENU :
+        //     screen_manager::current_screen = new screen_second(SCREEN_ID_WINDOW_MENU);
+        //     break; 
+        // case SCREEN_ID_ABOBA_MENU :
+        //     screen_manager::current_screen = new screen_second(SCREEN_ID_ABOBA_MENU);
+        //     break; 
 
         default:
             break;

@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include "screen_manager.hpp"
 #include <cstdlib>
+#include "StateMachine.hpp"
 
 MenuState::MenuState(StatesID id) 
     : State(id) 
@@ -16,12 +17,15 @@ void MenuState::activate(void *arg)
 {   
     printf("[MenuState]::[activate]\r\n");
     screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_TOOLS);
+    returnToToolsPending = false;
     AUXTIM_set_CB([](void* arg)
     {
-        // ptr->a -= 3;
-        // ptr->b += 3;
-        // ptr->c = 15;
-        // EventSystem::throwEvent(new Event_updateScreen);
+        auto self = static_cast<MenuState*>(arg);
+        if (self->returnToToolsPending)
+        {
+            screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_TOOLS);
+            self->returnToToolsPending = false;
+        }
     }, this, 2000, true);
     AUXTIM_start();
 }
@@ -40,33 +44,40 @@ bool MenuState::updateScreenAction(const uint32_t &mask)
 
 bool MenuState::onEvent(Event_btn* obj)
 {
-    if (obj->getBtn() == 7)
+    if (obj->getBtn() == 9)
     {
-        screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_WI_FI_MENU);
-    }
-    else if (obj->getBtn() == 8)
-    {
-        screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_BRIGHTNESS_MENU);
-    }
-    else if (obj->getBtn() == 9)
-    {
-        screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_SOUND_MENU);
+        screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_CLOCK_SETTINGS);
+        returnToToolsPending = true;
     }
     else if (obj->getBtn() == 10)
     {
-        screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_LANGUAGE_MENU);
+        screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_TIMER_SETTINGS);
+        returnToToolsPending = true;
     }
     else if (obj->getBtn() == 11)
     {
-        screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_WINDOW_MENU);
+        screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_SOUND_MENU);
+        returnToToolsPending = true;
     }
     else if (obj->getBtn() == 12)
     {
-        screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_ABOBA_MENU);
+        screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_LANGUAGE_MENU);
+        returnToToolsPending = true;
     }
-    if (obj->getBtn() == 13)
+    else if (obj->getBtn() == 13)
     {
-        screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_MAIN);
+        screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_WINDOW_MENU);
+        returnToToolsPending = true;
+    }
+    else if (obj->getBtn() == 14)
+    {
+        screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_ABOBA_MENU);
+        returnToToolsPending = true;
+    }
+    if (obj->getBtn() == 15)
+    {
+        screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_ON_STATE_MAINSCREEN);
+        StateMachine::changeState(StatesID::on_state); 
     }
     needUpdateScreen();
 

@@ -17,7 +17,7 @@ private:
     friend void action_lang_action(lv_event_t * e);
     friend void action_wi_fi_action(lv_event_t * e);
     friend void action_sound_action(lv_event_t * e);
-    friend void action_go_back(lv_event_t * e);
     friend void action_window_action(lv_event_t * e);
     friend void action_aboba_action(lv_event_t * e); 
+    friend void action_menu_out(lv_event_t * e);
 };

@@ -14,7 +14,7 @@ OffState::~OffState()
 void OffState::activate(void* arg)
 {
     printf("[OffState]::[activate]\r\n");
-    screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_POWER_OFF);
+    screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_OFF_STATE);
     // AUXTIM_set_CB([](void* arg)
     // {
     //     // ptr->a -= 3;

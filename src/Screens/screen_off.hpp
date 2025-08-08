@@ -10,7 +10,7 @@ public:
     virtual ~screen_off();
 
 protected:
-    void updateScreenAction(float c) override;
+    void updateScreenAction(int c) override;
 
 private:
     friend void action_power_on(lv_event_t * e);

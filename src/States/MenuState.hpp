@@ -16,5 +16,5 @@ protected:
     bool updateScreenAction(const uint32_t &mask) override;
 
 private:
-    
+    bool returnToToolsPending = false;
 };

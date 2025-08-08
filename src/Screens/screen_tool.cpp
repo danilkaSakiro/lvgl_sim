@@ -24,61 +24,60 @@ void screen_tool::updateScreenAction(std::string a)
 void action_wi_fi_action(lv_event_t * e)
 {
     auto ev = lv_event_get_code(e);
-    printf("action_wi_fi_action; Event: %d\r\n", ev);
+    // printf("action_wi_fi_action; Event: %d\r\n", ev);
 
-    EventSystem::throwEvent(new Event_btn(7));
+    EventSystem::throwEvent(new Event_btn(9));
 }
 
 // Обработчик яркости
 void action_brightness_action(lv_event_t * e)
 {
     auto ev = lv_event_get_code(e);
-    printf("action_brightness_action; Event: %d\r\n", ev);
+    // printf("action_brightness_action; Event: %d\r\n", ev);
 
-    EventSystem::throwEvent(new Event_btn(8));
+    EventSystem::throwEvent(new Event_btn(10));
 }
 
 // Обработчик звука
 void action_sound_action(lv_event_t * e)
 {
     auto ev = lv_event_get_code(e);
-    printf("action_sound_action; Event: %d\r\n", ev);
+    // printf("action_sound_action; Event: %d\r\n", ev);
 
-    EventSystem::throwEvent(new Event_btn(9));
+    EventSystem::throwEvent(new Event_btn(11));
 }
 
 // Обработчик языка
 void action_lang_action(lv_event_t * e)
 {
     auto ev = lv_event_get_code(e);
-    printf("action_sound_action; Event: %d\r\n", ev);
+    // printf("action_sound_action; Event: %d\r\n", ev);
 
-    EventSystem::throwEvent(new Event_btn(10));
+    EventSystem::throwEvent(new Event_btn(12));
 }
 
 // Проветривание
 void action_window_action(lv_event_t * e)
 {
     auto ev = lv_event_get_code(e);
-    printf("action_sound_action; Event: %d\r\n", ev);
+    // printf("action_sound_action; Event: %d\r\n", ev);
 
-    EventSystem::throwEvent(new Event_btn(11));
+    EventSystem::throwEvent(new Event_btn(13));
 }
 
 // Обработчик ABOBA
 void action_aboba_action(lv_event_t * e)
 {
     auto ev = lv_event_get_code(e);
-    printf("action_sound_action; Event: %d\r\n", ev);
+    // printf("action_sound_action; Event: %d\r\n", ev);
 
-    EventSystem::throwEvent(new Event_btn(12));
+    EventSystem::throwEvent(new Event_btn(14));
 }
 
-// Назад
-void action_go_back(lv_event_t * e)
+void action_menu_out(lv_event_t * e)
 {
     auto ev = lv_event_get_code(e);
-    printf("action_sound_action; Event: %d\r\n", ev);
+    // printf("action_sound_action; Event: %d\r\n", ev);
 
-    EventSystem::throwEvent(new Event_btn(13));
+    EventSystem::throwEvent(new Event_btn(15));
 }

@@ -1,16 +1,23 @@
 #include "images.h"
 
-const ext_img_desc_t images[12] = {
-    { "tools40", &img_tools40 },
-    { "fanTool", &img_fan_tool },
-    { "frostyTool", &img_frosty_tool },
+const ext_img_desc_t images[19] = {
     { "WiFi", &img_wi_fi },
     { "Brightness", &img_brightness },
-    { "language", &img_language },
-    { "Window", &img_window },
-    { "Sound", &img_sound },
-    { "state", &img_state },
-    { "clock", &img_clock },
     { "up", &img_up },
     { "down", &img_down },
+    { "left", &img_left },
+    { "right", &img_right },
+    { "power", &img_power },
+    { "tools", &img_tools },
+    { "clock", &img_clock },
+    { "Sound", &img_sound },
+    { "Language", &img_language },
+    { "Window", &img_window },
+    { "Tree", &img_tree },
+    { "Temp", &img_temp },
+    { "Fan", &img_fan },
+    { "timer", &img_timer },
+    { "humadity", &img_humadity },
+    { "Co2", &img_co2 },
+    { "back", &img_back },
 };
