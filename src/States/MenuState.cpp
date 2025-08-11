@@ -46,12 +46,12 @@ bool MenuState::onEvent(Event_btn* obj)
 {
     if (obj->getBtn() == 9)
     {
-        screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_CLOCK_SETTINGS);
+        screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_CLOCK_MENU);
         returnToToolsPending = true;
     }
     else if (obj->getBtn() == 10)
     {
-        screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_TIMER_SETTINGS);
+        screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_TIMER_MENU);
         returnToToolsPending = true;
     }
     else if (obj->getBtn() == 11)

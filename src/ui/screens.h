@@ -14,8 +14,8 @@ typedef struct _objects_t {
     lv_obj_t *on_state_change_temp;
     lv_obj_t *on_state_change_rpm;
     lv_obj_t *tools;
-    lv_obj_t *clock_settings;
-    lv_obj_t *timer_settings;
+    lv_obj_t *clock_menu;
+    lv_obj_t *timer_menu;
     lv_obj_t *sound_menu;
     lv_obj_t *language_menu;
     lv_obj_t *window_menu;
@@ -27,13 +27,13 @@ typedef struct _objects_t {
     lv_obj_t *time_main;
     lv_obj_t *button_temp;
     lv_obj_t *button_fan;
-    lv_obj_t *button_timer;
     lv_obj_t *humadity;
     lv_obj_t *get_humadity;
     lv_obj_t *get_co2;
     lv_obj_t *co2;
     lv_obj_t *pm2_5;
     lv_obj_t *get_pm25;
+    lv_obj_t *timer;
     lv_obj_t *back_temp;
     lv_obj_t *set_temperature_value;
     lv_obj_t *time_main_1;
@@ -41,29 +41,29 @@ typedef struct _objects_t {
     lv_obj_t *dec_temp;
     lv_obj_t *real_temp_value;
     lv_obj_t *button_conf_temp;
-    lv_obj_t *obj0;
     lv_obj_t *back_rpm;
     lv_obj_t *set_rpm_value;
     lv_obj_t *time_main_2;
     lv_obj_t *inc_rpm;
     lv_obj_t *dec_rpm;
     lv_obj_t *real_rpm_value;
+    lv_obj_t *real_fan;
+    lv_obj_t *set_fan;
     lv_obj_t *button_conf_rpm;
-    lv_obj_t *obj1;
     lv_obj_t *wi_fi_settings;
     lv_obj_t *wi_fi;
-    lv_obj_t *brightness_settings;
-    lv_obj_t *obj2;
-    lv_obj_t *sound_settings;
-    lv_obj_t *obj3;
-    lv_obj_t *language_settings;
+    lv_obj_t *clock_settings;
+    lv_obj_t *obj0;
+    lv_obj_t *timer_settings;
+    lv_obj_t *obj1;
+    lv_obj_t *tool_settings;
     lv_obj_t *language;
-    lv_obj_t *window_settings;
+    lv_obj_t *configuration_settings;
     lv_obj_t *window;
     lv_obj_t *aboba_settings;
     lv_obj_t *aboba;
     lv_obj_t *button_back;
-    lv_obj_t *obj4;
+    lv_obj_t *obj2;
 } objects_t;
 
 extern objects_t objects;
@@ -75,8 +75,8 @@ enum ScreensEnum {
     SCREEN_ID_ON_STATE_CHANGE_TEMP = 4,
     SCREEN_ID_ON_STATE_CHANGE_RPM = 5,
     SCREEN_ID_TOOLS = 6,
-    SCREEN_ID_CLOCK_SETTINGS = 7,
-    SCREEN_ID_TIMER_SETTINGS = 8,
+    SCREEN_ID_CLOCK_MENU = 7,
+    SCREEN_ID_TIMER_MENU = 8,
     SCREEN_ID_SOUND_MENU = 9,
     SCREEN_ID_LANGUAGE_MENU = 10,
     SCREEN_ID_WINDOW_MENU = 11,
@@ -107,13 +107,13 @@ void create_screen_tools();
 void delete_screen_tools();
 void tick_screen_tools();
 
-void create_screen_clock_settings();
-void delete_screen_clock_settings();
-void tick_screen_clock_settings();
+void create_screen_clock_menu();
+void delete_screen_clock_menu();
+void tick_screen_clock_menu();
 
-void create_screen_timer_settings();
-void delete_screen_timer_settings();
-void tick_screen_timer_settings();
+void create_screen_timer_menu();
+void delete_screen_timer_menu();
+void tick_screen_timer_menu();
 
 void create_screen_sound_menu();
 void delete_screen_sound_menu();

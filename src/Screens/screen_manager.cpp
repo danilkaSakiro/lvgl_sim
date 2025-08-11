@@ -3,6 +3,8 @@
 #include "EventSystem.hpp"
 #include "esp_lvgl_port.h"
 
+extern int c;
+
 screen_base* screen_manager::current_screen = nullptr;
 uint32_t screen_manager::MY_EVENT;
 

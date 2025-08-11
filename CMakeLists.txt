@@ -20,11 +20,13 @@ set(user_SRCS
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_brightness.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_clock.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_co2.c
+    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_configuration.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_down.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_fan.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_humadity.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_language.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_left.c
+    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_menu_tool.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_power.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_right.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_sound.c

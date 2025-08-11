@@ -42,8 +42,6 @@ bool OnState::updateScreenAction(const uint32_t &mask)
 {
     auto current_screen = screen_manager::screen_pt()->id();
 
-    // printf("[OnState]::[updateScreenAction] current screen ID = %d\n", current_screen);
-
     if (current_screen == ScreensEnum::SCREEN_ID_ON_STATE_CHANGE_TEMP)
     {
         screen_manager::screen_pt()->updateScreen(temp_changed ? c_preview : c);
@@ -52,6 +50,11 @@ bool OnState::updateScreenAction(const uint32_t &mask)
     {
         screen_manager::screen_pt()->updateScreen(rpm_changed ? a_preview : a);
     }
+    else if (current_screen == ScreensEnum::SCREEN_ID_ON_STATE_MAINSCREEN)
+    {
+        screen_manager::screen_pt()->updateScreen(c); // <-- добавлено
+    }
+
     return true;
 }
 

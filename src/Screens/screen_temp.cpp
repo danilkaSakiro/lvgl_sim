@@ -15,7 +15,7 @@ screen_temp::~screen_temp()
 void screen_temp::updateScreenAction(int c) 
 {
     char buf[32];
-    snprintf(buf, sizeof(buf), "%d", c);
+    snprintf(buf, sizeof(buf), "%d.0", c);
     lv_label_set_text(objects.set_temperature_value, buf);
 
 };

@@ -26,6 +26,7 @@ extern void action_power_on(lv_event_t * e);
 extern void action_power_off(lv_event_t * e);
 extern void action_confirm(lv_event_t * e);
 extern void action_menu_out(lv_event_t * e);
+extern void action_get_fan_mode(lv_event_t * e);
 
 
 #ifdef __cplusplus

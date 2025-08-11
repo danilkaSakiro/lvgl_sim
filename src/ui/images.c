@@ -1,6 +1,6 @@
 #include "images.h"
 
-const ext_img_desc_t images[19] = {
+const ext_img_desc_t images[21] = {
     { "WiFi", &img_wi_fi },
     { "Brightness", &img_brightness },
     { "up", &img_up },
@@ -20,4 +20,6 @@ const ext_img_desc_t images[19] = {
     { "humadity", &img_humadity },
     { "Co2", &img_co2 },
     { "back", &img_back },
+    { "Configuration", &img_configuration },
+    { "Menu_tool", &img_menu_tool },
 };

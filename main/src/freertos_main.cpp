@@ -165,7 +165,7 @@ void create_hello_world_screen()
 void lvgl_task(void *pvParameters)
 {
     lv_init();
-    hal_init(480, 480);
+    hal_init(1024, 600);
 
     lvgl_port_init();
     screen_manager::init();

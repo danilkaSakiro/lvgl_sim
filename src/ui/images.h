@@ -26,6 +26,8 @@ extern const lv_img_dsc_t img_timer;
 extern const lv_img_dsc_t img_humadity;
 extern const lv_img_dsc_t img_co2;
 extern const lv_img_dsc_t img_back;
+extern const lv_img_dsc_t img_configuration;
+extern const lv_img_dsc_t img_menu_tool;
 
 #ifndef EXT_IMG_DESC_T
 #define EXT_IMG_DESC_T
@@ -35,7 +37,7 @@ typedef struct _ext_img_desc_t {
 } ext_img_desc_t;
 #endif
 
-extern const ext_img_desc_t images[19];
+extern const ext_img_desc_t images[21];
 
 
 #ifdef __cplusplus
