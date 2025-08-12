@@ -4,7 +4,7 @@
 #include "StateMachine.hpp"
 
 screen_temp::screen_temp(int screen_id)
-    : screen_base(screen_id)
+    : screen_main(screen_id)
 {
 };
 
@@ -22,12 +22,12 @@ void screen_temp::updateScreenAction(int c)
 
 // ====================================================================
 
-void action_go_mainscreen(lv_event_t * e)
+void action_back_to_mainscreen_from_temp(lv_event_t * e)
 {
     auto ev = lv_event_get_code(e);
     // printf("action_go_mainscreen; Event: %d\r\n", ev);
 
-    EventSystem::throwEvent(new Event_btn(3));
+    StateMachine::changeState(StatesID::main_onstate);
 }
 
 void action_inc_temp(lv_event_t * e)
@@ -35,7 +35,7 @@ void action_inc_temp(lv_event_t * e)
     auto ev = lv_event_get_code(e);
     // printf("action_inc_temp; Event: %d\r\n", ev);
 
-    EventSystem::throwEvent(new Event_btn(4));
+    EventSystem::throwEvent(new Event_btn(1));
 }
 
 void action_dec_temp(lv_event_t * e)
@@ -43,13 +43,13 @@ void action_dec_temp(lv_event_t * e)
     auto ev = lv_event_get_code(e);
     // printf("action_dec_temp; Event: %d\r\n", ev);
 
-    EventSystem::throwEvent(new Event_btn(5));
+    EventSystem::throwEvent(new Event_btn(2));
 }
 
-void action_confirm(lv_event_t * e)
+void action_confirm_temp(lv_event_t * e)
 {
     auto ev = lv_event_get_code(e);
     // printf("action_confirm; Event: %d\r\n", ev);
 
-    EventSystem::throwEvent(new Event_btn(6));
+    StateMachine::changeState(StatesID::confirm_temp_onstate);
 }

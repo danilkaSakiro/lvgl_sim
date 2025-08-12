@@ -13,7 +13,11 @@ set(user_SRCS
     ${PROJECT_SOURCE_DIR}/src/StateMachine/StateMachine.cpp
     ${PROJECT_SOURCE_DIR}/src/States/State.cpp
     ${PROJECT_SOURCE_DIR}/src/States/OffState.cpp
-    ${PROJECT_SOURCE_DIR}/src/States/OnState.cpp
+    ${PROJECT_SOURCE_DIR}/src/States/MainState.cpp
+    ${PROJECT_SOURCE_DIR}/src/States/TempState.cpp
+    ${PROJECT_SOURCE_DIR}/src/States/TempConfirmState.cpp
+    ${PROJECT_SOURCE_DIR}/src/States/FanState.cpp
+    ${PROJECT_SOURCE_DIR}/src/States/FanConfirmState.cpp
     ${PROJECT_SOURCE_DIR}/src/States/MenuState.cpp
 
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_back.c
@@ -21,8 +25,10 @@ set(user_SRCS
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_clock.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_co2.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_configuration.c
+    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_dispetcher.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_down.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_fan.c
+    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_grafik.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_humadity.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_language.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_left.c
@@ -31,10 +37,14 @@ set(user_SRCS
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_right.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_sound.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_temp.c
+    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_tems.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_timer.c
+    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_timer60px.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_tools.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_tree.c
+    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_tree60px.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_up.c
+    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_visual.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_wi_fi.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_window.c
     
@@ -47,7 +57,9 @@ set(user_SRCS
     ${PROJECT_SOURCE_DIR}/src/Screens/screen_base.cpp
     ${PROJECT_SOURCE_DIR}/src/Screens/screen_main.cpp
     ${PROJECT_SOURCE_DIR}/src/Screens/screen_temp.cpp
-    ${PROJECT_SOURCE_DIR}/src/Screens/screen_rpm.cpp
+    ${PROJECT_SOURCE_DIR}/src/Screens/screen_confirm_temp.cpp
+    ${PROJECT_SOURCE_DIR}/src/Screens/screen_fan.cpp
+    ${PROJECT_SOURCE_DIR}/src/Screens/screen_confirm_fan.cpp
     ${PROJECT_SOURCE_DIR}/src/Screens/screen_tool.cpp
     ${PROJECT_SOURCE_DIR}/src/Screens/screen_off.cpp
     ${PROJECT_SOURCE_DIR}/src/esp_lvgl_port/esp_lvgl_port.cpp

@@ -59,9 +59,15 @@ void action_screen(lv_event_t * e)
         case SCREEN_ID_ON_STATE_CHANGE_TEMP:
             screen_manager::current_screen = new screen_temp(SCREEN_ID_ON_STATE_CHANGE_TEMP);
             break;
-        case SCREEN_ID_ON_STATE_CHANGE_RPM:
-            screen_manager::current_screen = new screen_rpm(SCREEN_ID_ON_STATE_CHANGE_RPM);
+        case SCREEN_ID_ON_STATE_CONFIRM_TEMP:
+            screen_manager::current_screen = new screen_confirm_temp(SCREEN_ID_ON_STATE_CONFIRM_TEMP);
             break;    
+        case SCREEN_ID_ON_STATE_CHANGE_FAN:
+            screen_manager::current_screen = new screen_fan(SCREEN_ID_ON_STATE_CHANGE_FAN);
+            break; 
+        case SCREEN_ID_ON_STATE_CONFIRM_FAN:
+            screen_manager::current_screen = new screen_confirm_fan(SCREEN_ID_ON_STATE_CONFIRM_FAN);
+            break;           
         case SCREEN_ID_TOOLS:
             screen_manager::current_screen = new screen_tool(SCREEN_ID_TOOLS);
             break;

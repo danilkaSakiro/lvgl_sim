@@ -35,7 +35,7 @@ void action_set_temp(lv_event_t * e)
     auto ev = lv_event_get_code(e);
     // printf("action_button2_action; Event: %d\r\n", ev);
 
-    EventSystem::throwEvent(new Event_btn(1));
+    StateMachine::changeState(StatesID::temp_onstate);
 }
 
 void action_set_fan_mode(lv_event_t * e)
@@ -43,10 +43,10 @@ void action_set_fan_mode(lv_event_t * e)
     auto ev = lv_event_get_code(e);
     // printf("action_fan_tool_action; Event: %d\r\n", ev);
 
-    EventSystem::throwEvent(new Event_btn(2));
+    StateMachine::changeState(StatesID::fan_onstate);
 }
 
-void action_menu(lv_event_t * e)
+void action_go_to_menu(lv_event_t * e)
 {
     auto ev = lv_event_get_code(e);
     // printf("action_button_tool_action; Event: %d\r\n", ev);

@@ -1,10 +1,10 @@
-#include "OnState.hpp"
+#include "MainState.hpp"
 #include <stdio.h>
 #include "screen_manager.hpp"
 #include <cstdlib>
 #include "StateMachine.hpp"
 
-OnState::OnState(StatesID id)
+MainState::MainState(StatesID id)
     : State(id)
     , c(25)
     , a(3)
@@ -12,18 +12,18 @@ OnState::OnState(StatesID id)
 
 }
 
-OnState::~OnState()
+MainState::~MainState()
 {
 
 }
 
-void OnState::activate(void *arg)
+void MainState::activate(void *arg)
 {
-    printf("[OnState]::[activate]\r\n");
+    printf("[MainState]::[activate]\r\n");
     screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_ON_STATE_MAINSCREEN);
     AUXTIM_set_CB([](void *arg)
                   {
-        OnState* ptr = static_cast<OnState*>(arg);
+        MainState* ptr = static_cast<MainState*>(arg);
         // ptr->a -= 3;
         // ptr->b += 3;
         // ptr->c = 15;
@@ -32,13 +32,13 @@ void OnState::activate(void *arg)
     AUXTIM_start();
 }
 
-void OnState::deactivate()
+void MainState::deactivate()
 {
-    printf("[OnState]::[deactivate]\r\n");
+    printf("[MainState]::[deactivate]\r\n");
     AUXTIM_clear();
 }
 
-bool OnState::updateScreenAction(const uint32_t &mask)
+bool MainState::updateScreenAction(const uint32_t &mask)
 {
     auto current_screen = screen_manager::screen_pt()->id();
 
@@ -46,19 +46,19 @@ bool OnState::updateScreenAction(const uint32_t &mask)
     {
         screen_manager::screen_pt()->updateScreen(temp_changed ? c_preview : c);
     }
-    else if (current_screen == ScreensEnum::SCREEN_ID_ON_STATE_CHANGE_RPM)
+    else if (current_screen == ScreensEnum::SCREEN_ID_ON_STATE_CHANGE_FAN)
     {
         screen_manager::screen_pt()->updateScreen(rpm_changed ? a_preview : a);
     }
     else if (current_screen == ScreensEnum::SCREEN_ID_ON_STATE_MAINSCREEN)
     {
-        screen_manager::screen_pt()->updateScreen(c); // <-- добавлено
+        screen_manager::screen_pt()->updateScreen(c); 
     }
 
     return true;
 }
 
-bool OnState::onEvent(Event_btn *obj)
+bool MainState::onEvent(Event_btn *obj)
 {
     if (obj->getBtn() == 1)
     {
@@ -70,7 +70,7 @@ bool OnState::onEvent(Event_btn *obj)
     {
         a_preview = a;
         rpm_changed = true;
-        screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_ON_STATE_CHANGE_RPM);
+        screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_ON_STATE_CHANGE_FAN);
     }
     else if (obj->getBtn() == 3)
     {

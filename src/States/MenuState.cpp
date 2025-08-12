@@ -77,7 +77,7 @@ bool MenuState::onEvent(Event_btn* obj)
     if (obj->getBtn() == 15)
     {
         screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_ON_STATE_MAINSCREEN);
-        StateMachine::changeState(StatesID::on_state); 
+        StateMachine::changeState(StatesID::main_onstate); 
     }
     needUpdateScreen();
 

@@ -1,11 +1,11 @@
 #pragma once
 #include "State.hpp"
 
-class OnState : public State
+class MainState : public State
 {
 public:
-    OnState(StatesID id);
-    ~OnState() override;
+    MainState(StatesID id);
+    ~MainState() override;
 
     void activate(void* arg) override;
     void deactivate() override;

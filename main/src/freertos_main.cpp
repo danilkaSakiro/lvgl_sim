@@ -21,7 +21,11 @@
 
 #include "StateMachine.hpp"
 #include "../States/OffState.hpp"
-#include "../States/OnState.hpp"
+#include "../States/MainState.hpp"
+#include "../States/TempState.hpp"
+#include "../States/TempConfirmState.hpp"
+#include "../States/FanState.hpp"
+#include "../States/FanConfirmState.hpp"
 #include "../States/MenuState.hpp"
 
 #include "ui.h"
@@ -220,7 +224,11 @@ extern "C" void freertos_main()
     EventSystem::subscribe(&fms);
 
     StateMachine::registerState<OffState>(StatesID::off_state);
-    StateMachine::registerState<OnState>(StatesID::on_state);
+    StateMachine::registerState<MainState>(StatesID::main_onstate);
+    StateMachine::registerState<TempState>(StatesID::temp_onstate);
+    StateMachine::registerState<TempConfirmState>(StatesID::confirm_temp_onstate);
+    StateMachine::registerState<FanState>(StatesID::fan_onstate);
+    StateMachine::registerState<FanConfirmState>(StatesID::confirm_fan_onstate);
     StateMachine::registerState<MenuState>(StatesID::menu);
 
     /* Create the LVGL task */

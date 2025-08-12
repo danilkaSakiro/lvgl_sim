@@ -23,5 +23,5 @@ void action_power_on(lv_event_t * e)
     auto ev = lv_event_get_code(e);
     printf("action_power_on; Event: %d\r\n", ev);
 
-    StateMachine::changeState(StatesID::on_state);
+    StateMachine::changeState(StatesID::main_onstate);
 }

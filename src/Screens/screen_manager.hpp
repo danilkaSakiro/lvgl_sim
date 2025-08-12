@@ -1,7 +1,9 @@
 #pragma once
 #include "screen_main.hpp"
 #include "screen_temp.hpp"
-#include "screen_rpm.hpp"
+#include "screen_confirm_temp.hpp"
+#include "screen_fan.hpp"
+#include "screen_confirm_fan.hpp"
 #include "screen_tool.hpp"
 #include "actions.h"
 

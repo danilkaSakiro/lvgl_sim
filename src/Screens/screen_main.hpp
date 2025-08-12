@@ -16,5 +16,5 @@ private:
     friend void action_power_off(lv_event_t * e);
     friend void action_set_temp(lv_event_t * e);
     friend void action_set_fan_mode(lv_event_t * e);
-    friend void action_menu(lv_event_t * e);
+    friend void action_go_to_menu(lv_event_t * e);
 };

@@ -12,7 +12,9 @@ typedef struct _objects_t {
     lv_obj_t *off_state;
     lv_obj_t *on_state_mainscreen;
     lv_obj_t *on_state_change_temp;
-    lv_obj_t *on_state_change_rpm;
+    lv_obj_t *on_state_confirm_temp;
+    lv_obj_t *on_state_change_fan;
+    lv_obj_t *on_state_confirm_fan;
     lv_obj_t *tools;
     lv_obj_t *clock_menu;
     lv_obj_t *timer_menu;
@@ -41,6 +43,9 @@ typedef struct _objects_t {
     lv_obj_t *dec_temp;
     lv_obj_t *real_temp_value;
     lv_obj_t *button_conf_temp;
+    lv_obj_t *button_cancel;
+    lv_obj_t *obj0;
+    lv_obj_t *obj1;
     lv_obj_t *back_rpm;
     lv_obj_t *set_rpm_value;
     lv_obj_t *time_main_2;
@@ -50,12 +55,13 @@ typedef struct _objects_t {
     lv_obj_t *real_fan;
     lv_obj_t *set_fan;
     lv_obj_t *button_conf_rpm;
-    lv_obj_t *wi_fi_settings;
-    lv_obj_t *wi_fi;
+    lv_obj_t *button_cancel_1;
+    lv_obj_t *obj2;
+    lv_obj_t *obj3;
     lv_obj_t *clock_settings;
-    lv_obj_t *obj0;
+    lv_obj_t *obj4;
     lv_obj_t *timer_settings;
-    lv_obj_t *obj1;
+    lv_obj_t *obj5;
     lv_obj_t *tool_settings;
     lv_obj_t *language;
     lv_obj_t *configuration_settings;
@@ -63,7 +69,13 @@ typedef struct _objects_t {
     lv_obj_t *aboba_settings;
     lv_obj_t *aboba;
     lv_obj_t *button_back;
-    lv_obj_t *obj2;
+    lv_obj_t *obj6;
+    lv_obj_t *grafik_settings;
+    lv_obj_t *obj7;
+    lv_obj_t *tems_settings;
+    lv_obj_t *obj8;
+    lv_obj_t *visual_settings;
+    lv_obj_t *obj9;
 } objects_t;
 
 extern objects_t objects;
@@ -73,14 +85,16 @@ enum ScreensEnum {
     SCREEN_ID_OFF_STATE = 2,
     SCREEN_ID_ON_STATE_MAINSCREEN = 3,
     SCREEN_ID_ON_STATE_CHANGE_TEMP = 4,
-    SCREEN_ID_ON_STATE_CHANGE_RPM = 5,
-    SCREEN_ID_TOOLS = 6,
-    SCREEN_ID_CLOCK_MENU = 7,
-    SCREEN_ID_TIMER_MENU = 8,
-    SCREEN_ID_SOUND_MENU = 9,
-    SCREEN_ID_LANGUAGE_MENU = 10,
-    SCREEN_ID_WINDOW_MENU = 11,
-    SCREEN_ID_ABOBA_MENU = 12,
+    SCREEN_ID_ON_STATE_CONFIRM_TEMP = 5,
+    SCREEN_ID_ON_STATE_CHANGE_FAN = 6,
+    SCREEN_ID_ON_STATE_CONFIRM_FAN = 7,
+    SCREEN_ID_TOOLS = 8,
+    SCREEN_ID_CLOCK_MENU = 9,
+    SCREEN_ID_TIMER_MENU = 10,
+    SCREEN_ID_SOUND_MENU = 11,
+    SCREEN_ID_LANGUAGE_MENU = 12,
+    SCREEN_ID_WINDOW_MENU = 13,
+    SCREEN_ID_ABOBA_MENU = 14,
 };
 
 void create_screen_blank();
@@ -99,9 +113,17 @@ void create_screen_on_state_change_temp();
 void delete_screen_on_state_change_temp();
 void tick_screen_on_state_change_temp();
 
-void create_screen_on_state_change_rpm();
-void delete_screen_on_state_change_rpm();
-void tick_screen_on_state_change_rpm();
+void create_screen_on_state_confirm_temp();
+void delete_screen_on_state_confirm_temp();
+void tick_screen_on_state_confirm_temp();
+
+void create_screen_on_state_change_fan();
+void delete_screen_on_state_change_fan();
+void tick_screen_on_state_change_fan();
+
+void create_screen_on_state_confirm_fan();
+void delete_screen_on_state_confirm_fan();
+void tick_screen_on_state_confirm_fan();
 
 void create_screen_tools();
 void delete_screen_tools();
