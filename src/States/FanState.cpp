@@ -6,7 +6,7 @@
 
 FanState::FanState(StatesID id)
     : MainState(id)
-    , a(3)
+    , Fan_mode_preview(FanChanges::getfan_mode_ch())  
 {
 
 }
@@ -20,58 +20,39 @@ void FanState::activate(void *arg)
 {
     printf("[FanState]::[activate]\r\n");
     screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_ON_STATE_CHANGE_FAN);
-    AUXTIM_set_CB([](void *arg)
-                  {
-        FanState* ptr = static_cast<FanState*>(arg);
-        // ptr->a -= 3;
-        // ptr->b += 3;
-        // ptr->c = 15;
-        EventSystem::throwEvent(new Event_updateScreen); }, this, 2000, true);
-
-    AUXTIM_start();
 }
 
 void FanState::deactivate()
 {
     printf("[FanState]::[deactivate]\r\n");
-    AUXTIM_clear();
 }
 
 bool FanState::updateScreenAction(const uint32_t &mask)
 {
-    auto current_screen = screen_manager::screen_pt()->id();
-
-    screen_manager::screen_pt()->updateScreen(rpm_changed ? a_preview : a);
-
+    auto screen = screen_manager::screen_pt();
+    if (screen)
+    {
+        screen->updateScreen(FanChanges::getfan_mode_change() ? Fan_mode_preview : FanChanges::getfan_mode());
+    } 
     return true;
 }
 
 bool FanState::onEvent(Event_btn *obj)
 {
-    if (obj->getBtn() == 1)
+    if (!obj) return false;
+    
+     if (obj->getBtn() == 1 && Fan_mode_preview < 9)
     {
-        if (rpm_changed)
-        {
-            if (a_preview < 9) a_preview += 1;
-        }
-        else
-        {
-            if (a < 9) a += 1;
-        }
+        Fan_mode_preview++;
+        FanChanges::setfan_mode_ch(Fan_mode_preview);
+        FanChanges::setfan_mode_change(true);
     }
-    else if (obj->getBtn() == 2)
+    else if (obj->getBtn() == 2 && Fan_mode_preview > 0)
     {
-        if (rpm_changed)
-        {
-            if (a_preview > 0) a_preview -= 1;
-        }
-        else
-        {
-            if (a > 0) a -= 1;
-        }
+        Fan_mode_preview--;
+        FanChanges::setfan_mode_ch(Fan_mode_preview);
+        FanChanges::setfan_mode_change(true);
     }
-
     needUpdateScreen();
-
     return true;
 }

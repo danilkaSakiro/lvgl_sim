@@ -1,4 +1,5 @@
 #include "FanConfirmState.hpp"
+#include "FanState.hpp"
 #include <stdio.h>
 #include "screen_manager.hpp"
 #include <cstdlib>
@@ -19,33 +20,18 @@ void FanConfirmState::activate(void *arg)
 {
     printf("[FanConfirmState]::[activate]\r\n");
     screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_ON_STATE_CONFIRM_FAN);
-    AUXTIM_set_CB([](void *arg)
-                  {
-        FanConfirmState* ptr = static_cast<FanConfirmState*>(arg);
-        // ptr->a -= 3;
-        // ptr->b += 3;
-        // ptr->c = 15;
-        EventSystem::throwEvent(new Event_updateScreen); }, this, 2000, true);
-
-    AUXTIM_start();
 }
 
 void FanConfirmState::deactivate()
 {
     printf("[FanConfirmState]::[deactivate]\r\n");
-    AUXTIM_clear();
 }
 
-bool FanConfirmState::updateScreenAction(const uint32_t &mask)
+bool FanConfirmState::onEvent(Event_change_fan *obj)
 {
-
-    return true;
-}
-
-bool FanConfirmState::onEvent(Event_btn *obj)
-{
-    
+    if (!obj) return false;
+    FanChanges::setfan_mode(FanChanges::getfan_mode_ch());
+    StateMachine::changeState(StatesID::fan_onstate);
     needUpdateScreen();
-
     return true;
 }

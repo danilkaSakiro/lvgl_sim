@@ -6,9 +6,7 @@
 
 TempState::TempState(StatesID id)
     : MainState(id)
-    , c(25)
-    , c_preview(c)  
-    , temp_changed(false)
+    , Temp_preview(TempChanges::gettemperature_ch())  
 {
 
 }
@@ -20,52 +18,41 @@ TempState::~TempState()
 
 void TempState::activate(void *arg)
 {
-    printf("[TempState]::[activate]\r\n");
+    printf("[TempState]::[activate] %d\r\n", TempChanges::gettemperature_ch());
     screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_ON_STATE_CHANGE_TEMP);
-    AUXTIM_set_CB([](void *arg)
-                  {
-        TempState* ptr = static_cast<TempState*>(arg);
-        // ptr->a -= 3;
-        // ptr->b += 3;
-        // ptr->c = 15;
-        EventSystem::throwEvent(new Event_updateScreen); }, this, 2000, true);
-
-    AUXTIM_start();
 }
 
 void TempState::deactivate()
 {
     printf("[TempState]::[deactivate]\r\n");
-    AUXTIM_clear();
 }
 
 bool TempState::updateScreenAction(const uint32_t &mask)
 {
-    screen_manager::screen_pt()->updateScreen(temp_changed ? c_preview : c);
-
+    auto screen = screen_manager::screen_pt();
+    if (screen)
+    {
+        screen->updateScreen(TempChanges::gettemp_change() ? Temp_preview : TempChanges::gettemperature());
+    } 
     return true;
 }
 
 bool TempState::onEvent(Event_btn *obj)
 {
-    if (obj->getBtn() == 1)
+    if (!obj) return false;
+    
+    if (obj->getBtn() == 1 && Temp_preview < 35)
     {
-        if (c_preview < 35) 
-        {
-            c_preview += 1;
-            temp_changed = true;
-        }
+        Temp_preview++;
+        TempChanges::settemperature_ch(Temp_preview);
+        TempChanges::settemp_change(true);
     }
-    else if (obj->getBtn() == 2)
+    else if (obj->getBtn() == 2 && Temp_preview > 15)
     {
-        if (c_preview > 15) 
-        {
-            c_preview -= 1;
-            temp_changed = true;
-        }
+        Temp_preview--;
+        TempChanges::settemperature_ch(Temp_preview);
+        TempChanges::settemp_change(true);
     }
-
     needUpdateScreen();
-
     return true;
 }

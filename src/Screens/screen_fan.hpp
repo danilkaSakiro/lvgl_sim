@@ -10,7 +10,7 @@ public:
     virtual ~screen_fan();
 
 protected:
-    void updateScreenAction(int RPM) override;
+    void updateScreenAction(int c) override;
 
 private:
     friend void action_back_to_mainscreen_from_fan(lv_event_t * e);

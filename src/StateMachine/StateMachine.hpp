@@ -2,10 +2,13 @@
     #include <cstdint>
     #include <unordered_map>
     #include <functional>
-
+    
     #include "StatesID.hpp"
+    #include "MainState.hpp" 
     #include "EventSystem.hpp"
 
+    #include "FreeRTOS.h"
+    #include "semphr.h"
     class State;
 
     class StateMachine : public Event_interface
@@ -43,11 +46,12 @@
             return States_fabric[id]();
         }
 
+        static MainState* getCurrentState();
         static StatesID       getState();
         static void           changeState(StatesID id, void* data = nullptr);
         static void           changeState(StatesID id, uint32_t cancelMask, void* data = nullptr);
         static void           changeState(StatesID id, uint32_t cancelMask, bool disableDeactivate, void* data = nullptr);
-
+        static void           changeState(State* existingState);
         static inline uint32_t bit(StatesID id)
         {
             if (id == StatesID::noState) return 0;
@@ -65,4 +69,5 @@
         static std::unordered_map<StatesID, StateFabricMethod> States_fabric;
         static State* activeState;
         static StateMachine*  _pt; 
+        static SemaphoreHandle_t _mux; 
     };

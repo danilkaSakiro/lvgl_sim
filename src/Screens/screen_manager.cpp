@@ -71,28 +71,43 @@ void action_screen(lv_event_t * e)
         case SCREEN_ID_TOOLS:
             screen_manager::current_screen = new screen_tool(SCREEN_ID_TOOLS);
             break;
-        // case SCREEN_ID_CLOCK_SETTINGS :
-        //     screen_manager::current_screen = new screen_second(SCREEN_ID_CLOCK_SETTINGS);
-        //     break;
-        // case SCREEN_ID_TIMER_SETTINGS :
-        //     screen_manager::current_screen = new screen_second(SCREEN_ID_TIMER_SETTINGS);
-        //     break; 
-        // case SCREEN_ID_SOUND_MENU :
-        //     screen_manager::current_screen = new screen_second(SCREEN_ID_SOUND_MENU);
-        //     break;         
-        // case SCREEN_ID_LANGUAGE_MENU :
-        //     screen_manager::current_screen = new screen_second(SCREEN_ID_LANGUAGE_MENU);
-        //     break;
-        // case SCREEN_ID_WINDOW_MENU :
-        //     screen_manager::current_screen = new screen_second(SCREEN_ID_WINDOW_MENU);
-        //     break; 
-        // case SCREEN_ID_ABOBA_MENU :
-        //     screen_manager::current_screen = new screen_second(SCREEN_ID_ABOBA_MENU);
-        //     break; 
-
+        case SCREEN_ID_CLOCK_MENU:
+            screen_manager::current_screen = new screen_tool(SCREEN_ID_CLOCK_MENU);
+            break;
+        case SCREEN_ID_TIMER_MENU:
+            screen_manager::current_screen = new screen_tool(SCREEN_ID_TIMER_MENU);
+            break;
+        case SCREEN_ID_TIMER_PARAMETR_MENU:
+            screen_manager::current_screen = new screen_tool(SCREEN_ID_TIMER_PARAMETR_MENU);
+            break;
+        case SCREEN_ID_ON_STATE_MAINSCREEN_WITH_TIMER:
+            screen_manager::current_screen = new screen_tool(SCREEN_ID_ON_STATE_MAINSCREEN_WITH_TIMER);
+            break;
+        case SCREEN_ID_SETTING_MENU:
+            screen_manager::current_screen = new screen_tool(SCREEN_ID_SETTING_MENU);
+            break;
+        case SCREEN_ID_CONFIGURATION_MENU:
+            screen_manager::current_screen = new screen_tool(SCREEN_ID_CONFIGURATION_MENU);
+            break;
+        case SCREEN_ID_GRAFIK_MENU:
+            screen_manager::current_screen = new screen_tool(SCREEN_ID_GRAFIK_MENU);
+            break;
+        case SCREEN_ID_DISPETCHER_MENU:
+            screen_manager::current_screen = new screen_tool(SCREEN_ID_DISPETCHER_MENU);
+            break;
+        case SCREEN_ID_THEMES_MENU:
+            screen_manager::current_screen = new screen_tool(SCREEN_ID_THEMES_MENU);
+            break;
+        case SCREEN_ID_VISUAL_MENU:
+            screen_manager::current_screen = new screen_tool(SCREEN_ID_VISUAL_MENU);
+            break;
+        case SCREEN_ID_PASWORD_MENU:
+            screen_manager::current_screen = new screen_tool(SCREEN_ID_PASWORD_MENU);
+            break;
         default:
             break;
         }
+        EventSystem::throwEventNoBlock(new Event_updateScreen);
     }
     else if (ev == LV_EVENT_SCREEN_UNLOADED)
     {

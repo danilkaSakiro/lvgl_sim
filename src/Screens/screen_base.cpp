@@ -47,24 +47,19 @@ void screen_base::updateScreen(int a, int c)
 
 void screen_base::updateScreenAction(int a, int b, int c) 
 {
-
 };
 
 void screen_base::updateScreenAction(std::string a, int b) 
-{
-
+{;
 };
 
 void screen_base::updateScreenAction(int a, int c)
 {
-
 };
 void screen_base::updateScreenAction(std::string a) 
 {
-
 };
 
 void screen_base::updateScreenAction(int c)
 {
-
 };

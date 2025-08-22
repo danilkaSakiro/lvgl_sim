@@ -38,48 +38,5 @@ void MenuState::deactivate()
 
 bool MenuState::updateScreenAction(const uint32_t &mask)
 {
-    screen_manager::screen_pt()->updateScreen("Wi-Fi");
-    return true;
-}
 
-bool MenuState::onEvent(Event_btn* obj)
-{
-    if (obj->getBtn() == 9)
-    {
-        screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_CLOCK_MENU);
-        returnToToolsPending = true;
-    }
-    else if (obj->getBtn() == 10)
-    {
-        screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_TIMER_MENU);
-        returnToToolsPending = true;
-    }
-    else if (obj->getBtn() == 11)
-    {
-        screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_SOUND_MENU);
-        returnToToolsPending = true;
-    }
-    else if (obj->getBtn() == 12)
-    {
-        screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_LANGUAGE_MENU);
-        returnToToolsPending = true;
-    }
-    else if (obj->getBtn() == 13)
-    {
-        screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_WINDOW_MENU);
-        returnToToolsPending = true;
-    }
-    else if (obj->getBtn() == 14)
-    {
-        screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_ABOBA_MENU);
-        returnToToolsPending = true;
-    }
-    if (obj->getBtn() == 15)
-    {
-        screen_manager::changeToScreen(ScreensEnum::SCREEN_ID_ON_STATE_MAINSCREEN);
-        StateMachine::changeState(StatesID::main_onstate); 
-    }
-    needUpdateScreen();
-
-    return true;
 }

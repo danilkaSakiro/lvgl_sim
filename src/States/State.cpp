@@ -3,7 +3,6 @@
 #include "FreeRTOS.h"
 #include "timers.h"
 #include "screen_manager.hpp"
-
 TimerHandle_t State::aux_tim = nullptr;
 State::AuxTimCB State::cb = nullptr;
 void* State::_arg = nullptr;
@@ -37,6 +36,7 @@ bool State::updateScreen(const uint32_t &mask)
 {
     if (screen_manager::screen_pt() == nullptr)
     {
+        printf("Huyavert\n\r");
         return false;
     }
 

@@ -15,6 +15,6 @@ protected:
 private:
     friend void action_change_fan(lv_event_t * e);
     friend void action_nochange_fan(lv_event_t * e);
-    friend void action_save_fan_change(lv_event_t * e);
+    friend void action_cancel_fan_change(lv_event_t * e);
  
 };

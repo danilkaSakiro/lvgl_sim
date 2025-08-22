@@ -19,34 +19,47 @@ set(user_SRCS
     ${PROJECT_SOURCE_DIR}/src/States/FanState.cpp
     ${PROJECT_SOURCE_DIR}/src/States/FanConfirmState.cpp
     ${PROJECT_SOURCE_DIR}/src/States/MenuState.cpp
+    ${PROJECT_SOURCE_DIR}/src/States/ClockState.cpp
+    ${PROJECT_SOURCE_DIR}/src/States/TimerState.cpp 
+    ${PROJECT_SOURCE_DIR}/src/States/TimerParametrsState.cpp
+    ${PROJECT_SOURCE_DIR}/src/States/ConfigurationState.cpp
+    ${PROJECT_SOURCE_DIR}/src/States/ToolState.cpp
+    ${PROJECT_SOURCE_DIR}/src/States/GrafikState.cpp
+    ${PROJECT_SOURCE_DIR}/src/States/DispetcherState.cpp
+    ${PROJECT_SOURCE_DIR}/src/States/ThemesState.cpp
+    ${PROJECT_SOURCE_DIR}/src/States/VisualState.cpp
+    ${PROJECT_SOURCE_DIR}/DeviceSettings/DeviceSettings.cpp
 
-    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_back.c
-    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_brightness.c
+    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_backfan.c
+    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_backspace.c
+    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_backtemp.c
+    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_calendar.c
+    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_change_time.c
+    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_clock_out.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_clock.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_co2.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_configuration.c
+    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_dec.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_dispetcher.c
-    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_down.c
+    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_fan_timer.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_fan.c
+    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_fann_timer.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_grafik.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_humadity.c
-    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_language.c
-    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_left.c
-    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_menu_tool.c
+    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_inc.c
+    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_menu_out.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_power.c
-    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_right.c
-    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_sound.c
+    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_start_timer.c
+    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_temp_timer.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_temp.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_tems.c
+    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_timer_menu.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_timer.c
-    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_timer60px.c
-    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_tools.c
+    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_tool_menu.c
+    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_tool.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_tree.c
-    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_tree60px.c
-    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_up.c
+    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_visual_settings.c
     ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_visual.c
-    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_wi_fi.c
-    ${PROJECT_SOURCE_DIR}/src/ui/images/ui_image_window.c
     
     ${PROJECT_SOURCE_DIR}/src/ui/screens.c
     ${PROJECT_SOURCE_DIR}/src/ui/styles.c
@@ -54,14 +67,23 @@ set(user_SRCS
 
     ${PROJECT_SOURCE_DIR}/src/Screens/screen_manager.cpp
 
+    ${PROJECT_SOURCE_DIR}/src/Screens/screen_off.cpp    
     ${PROJECT_SOURCE_DIR}/src/Screens/screen_base.cpp
     ${PROJECT_SOURCE_DIR}/src/Screens/screen_main.cpp
     ${PROJECT_SOURCE_DIR}/src/Screens/screen_temp.cpp
     ${PROJECT_SOURCE_DIR}/src/Screens/screen_confirm_temp.cpp
     ${PROJECT_SOURCE_DIR}/src/Screens/screen_fan.cpp
     ${PROJECT_SOURCE_DIR}/src/Screens/screen_confirm_fan.cpp
+    ${PROJECT_SOURCE_DIR}/src/Screens/screen_menu.cpp
+    ${PROJECT_SOURCE_DIR}/src/Screens/screen_clock.cpp
+    ${PROJECT_SOURCE_DIR}/src/Screens/screen_timer.cpp
+    ${PROJECT_SOURCE_DIR}/src/Screens/screen_configuration.cpp
     ${PROJECT_SOURCE_DIR}/src/Screens/screen_tool.cpp
-    ${PROJECT_SOURCE_DIR}/src/Screens/screen_off.cpp
+    ${PROJECT_SOURCE_DIR}/src/Screens/screen_grafik.cpp
+    ${PROJECT_SOURCE_DIR}/src/Screens/screen_dispetcher.cpp
+    ${PROJECT_SOURCE_DIR}/src/Screens/screen_themes.cpp
+    ${PROJECT_SOURCE_DIR}/src/Screens/screen_visual.cpp
+
     ${PROJECT_SOURCE_DIR}/src/esp_lvgl_port/esp_lvgl_port.cpp
     
 )

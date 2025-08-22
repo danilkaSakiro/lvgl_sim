@@ -1,9 +1,9 @@
 #pragma once
-#include "screen_base.hpp"
+#include "screen_menu.hpp"
 #include "ui.h"
 #include "actions.h"
 
-class screen_tool : public screen_base
+class screen_tool : public screen_menu
 {
 public:
     screen_tool(int screen_id);
@@ -13,11 +13,6 @@ protected:
     void updateScreenAction(std::string a) override;
 
 private:
-    friend void action_brightness_action(lv_event_t * e);
-    friend void action_lang_action(lv_event_t * e);
-    friend void action_wi_fi_action(lv_event_t * e);
-    friend void action_sound_action(lv_event_t * e);
-    friend void action_window_action(lv_event_t * e);
-    friend void action_aboba_action(lv_event_t * e); 
-    friend void action_menu_out(lv_event_t * e);
+    friend void action_out_setting(lv_event_t * e);
+
 };

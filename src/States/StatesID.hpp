@@ -11,6 +11,16 @@ enum StatesID : int
     fan_onstate,
     confirm_fan_onstate,
     menu,
+    clock_state,
+    timer_state,
+    timer_patametr_state,
+    main_with_timer_state,
+    tool_state,
+    configuration_state,
+    grafik_state,
+    dispetcher_state,
+    themes_state,
+    visual_state,
 
     state_count
 };

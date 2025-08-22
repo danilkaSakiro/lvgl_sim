@@ -27,6 +27,15 @@
 #include "../States/FanState.hpp"
 #include "../States/FanConfirmState.hpp"
 #include "../States/MenuState.hpp"
+#include "../States/ClockState.hpp"
+#include "../States/TimerState.hpp"
+#include "../States/TimerParametrsState.hpp"
+#include "../States/ConfigurationState.hpp"
+#include "../States/ToolState.hpp"
+#include "../States/GrafikState.hpp"
+#include "../States/DispetcherState.hpp"
+#include "../States/ThemesState.hpp"
+#include "../States/VisualState.hpp"
 
 #include "ui.h"
 #include "screen_manager.hpp"
@@ -230,6 +239,16 @@ extern "C" void freertos_main()
     StateMachine::registerState<FanState>(StatesID::fan_onstate);
     StateMachine::registerState<FanConfirmState>(StatesID::confirm_fan_onstate);
     StateMachine::registerState<MenuState>(StatesID::menu);
+    StateMachine::registerState<ClockState>(StatesID::clock_state);
+    StateMachine::registerState<TimerState>(StatesID::timer_state);
+    StateMachine::registerState<TimerParametrsState>(StatesID::timer_patametr_state);
+    StateMachine::registerState<MenuState>(StatesID::main_with_timer_state);
+    StateMachine::registerState<MenuState>(StatesID::tool_state);
+    StateMachine::registerState<ConfigurationState>(StatesID::configuration_state);
+    StateMachine::registerState<GrafikState>(StatesID::grafik_state);
+    StateMachine::registerState<MenuState>(StatesID::dispetcher_state);
+    StateMachine::registerState<MenuState>(StatesID::themes_state);
+    StateMachine::registerState<MenuState>(StatesID::visual_state);
 
     /* Create the LVGL task */
     if (xTaskCreate(lvgl_task, "LVGL Task", 8192, nullptr, 3, nullptr) != pdPASS) {

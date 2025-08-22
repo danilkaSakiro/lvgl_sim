@@ -4,6 +4,8 @@
 
 class Event_btn;
 class Event_arc;
+class Event_change_temp;
+class Event_change_fan;
 
 class Event_changeState;
 class Event_updateScreen;
@@ -25,6 +27,8 @@ public:
     virtual bool onEvent(Event* obj) {return obj->dispatch(this);}
 
     virtual bool onEvent(Event_btn* obj) {return false;}
+    virtual bool onEvent(Event_change_temp* obj) {return false;}
+    virtual bool onEvent(Event_change_fan* obj) {return false;}
     virtual bool onEvent(Event_arc* obj) {return false;}
     virtual bool onEvent(Event_changeState* obj) {return false;}
     virtual bool onEvent(Event_updateScreen* obj) {return false;}
@@ -77,6 +81,10 @@ public:
 private:
     int _val;   
 };
+
+class Event_change_temp final : public Event_crtp<Event_change_temp> {};
+
+class Event_change_fan final : public Event_crtp<Event_change_fan> {};
 
 class Event_updateScreen final : public Event_crtp<Event_updateScreen> {};
 

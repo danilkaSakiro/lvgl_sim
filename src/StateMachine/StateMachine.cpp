@@ -4,20 +4,18 @@
 #include "State.hpp"
 #include <iostream>
 
-#include "FreeRTOS.h"
-#include "semphr.h"
-
 #define STATE_STACK_TAG "STATE_STACK"
 
-namespace
-{
-    SemaphoreHandle_t _mux = nullptr;
-};
+// namespace
+// {
+//     SemaphoreHandle_t _mux = nullptr;
+// };
 
 StateMachine*                                               StateMachine::_pt = nullptr; 
 
 std::unordered_map<StatesID, StateMachine::StateFabricMethod> StateMachine::States_fabric;
 State* StateMachine::activeState;
+SemaphoreHandle_t StateMachine::_mux = nullptr;
 
 StateMachine::StateMachine()
     : Event_interface()
@@ -86,7 +84,7 @@ bool StateMachine::onEvent(Event_changeState* obj)
     xSemaphoreGive(_mux);
 
     activeState->activate(obj->getData());
-    activeState->updateScreen(0xFFFFFFFF);
+    // activeState->updateScreen(0xFFFFFFFF);
     
     return true;
 }
@@ -117,6 +115,27 @@ void StateMachine::changeState(StatesID id, uint32_t cancelMask, bool disableDea
     EventSystem::throwEvent(evnt, true);
 }
 
+void StateMachine::changeState(State* existingState)
+{
+    xSemaphoreTake(_mux, portMAX_DELAY);
+
+    if (activeState != nullptr)
+    {
+        activeState->deactivate();
+        delete activeState;
+    }
+
+    activeState = existingState;
+
+    xSemaphoreGive(_mux);
+
+    if (activeState != nullptr)
+    {
+        activeState->activate(nullptr);
+        // activeState->updateScreen(0xFFFFFFFF);
+    }
+}
+
 StatesID StateMachine::getState()
 {
     xSemaphoreTake(_mux, portMAX_DELAY);
@@ -124,4 +143,13 @@ StatesID StateMachine::getState()
     xSemaphoreGive(_mux);
 
     return id;
+}
+
+MainState* StateMachine::getCurrentState()
+{
+    MainState* ptr = nullptr;
+    xSemaphoreTake(_mux, portMAX_DELAY);
+    ptr = dynamic_cast<MainState*>(activeState);
+    xSemaphoreGive(_mux);
+    return ptr;
 }

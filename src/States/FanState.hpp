@@ -16,7 +16,6 @@ protected:
     bool updateScreenAction(const uint32_t &mask) override;
 
 private:
-    int a;
-    int a_preview;
-    bool rpm_changed;
+    int Fan_mode_preview;
+
 };
